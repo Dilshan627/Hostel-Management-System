@@ -1,0 +1,15 @@
+.pane{
+    -fx-background-color: #ffffff;
+}
+
+.button:hover{
+    -fx-border-color: #5CACDF;
+    -fx-background-color: #5CACDF;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+.button{
+    -fx-border-color: #bdb7b7;
+    -fx-border-radius: 20px;
+}
