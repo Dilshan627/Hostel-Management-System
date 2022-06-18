@@ -69,8 +69,10 @@
 }
 
 .btn:hover{
-    -fx-border-color: #5CACDF;
+    -fx-border-color: #00DBD5;
     -fx-border-radius: 3,2,1;
+    -fx-background-color: #00DBD5;
+    -fx-background-radius: 3,2,1;
 }
 .btn{
     -fx-background-color: #3c7fb1,

@@ -27,7 +27,7 @@ public class AppInitializer extends Application {
         primaryStage.centerOnScreen();
         primaryStage.show();
 
-        Student student=new Student();
+
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
        /* try {

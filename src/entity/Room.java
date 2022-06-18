@@ -1,8 +1,6 @@
 package entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +9,8 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -24,6 +23,6 @@ public class Room implements SuperEntity {
     private double rent;
     private String qty;
 
-    @OneToMany(mappedBy = "room")
-    private List<Reserve> arrayList = new ArrayList();
+   @OneToMany(mappedBy = "room")
+    private List<Reserve> list = new ArrayList();
 }

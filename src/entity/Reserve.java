@@ -1,13 +1,12 @@
 package entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -20,28 +19,13 @@ public class Reserve implements SuperEntity {
     private double keyMoney;
 
     @ManyToOne
-    @Column(name = "student_id")
-    private Student studentId;
-
-    @ManyToOne
-    @Column(name = "room_id")
-    private Room roomId;
-
-    @ManyToOne
-    @JoinColumn(name = "student_student_id")
+    @JoinColumn(name = "student_id")
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "room_room_id")
+    @JoinColumn(name = "room_id")
     private Room room;
 
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
 
     public Student getStudent() {
         return student;
@@ -49,5 +33,13 @@ public class Reserve implements SuperEntity {
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }
