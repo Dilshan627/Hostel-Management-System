@@ -1,5 +1,6 @@
 package bo;
 
+import bo.custom.impl.StudentBOImpl;
 import dao.custom.impl.StudentDAOImpl;
 
 public class BOFactory {
@@ -15,7 +16,7 @@ public class BOFactory {
     public <T extends SuperBO> T getBO(BOType boType) {
         switch (boType) {
             case Student:
-                return (T) new StudentDAOImpl();
+                return (T) new StudentBOImpl();
             default:
                 return null;
         }

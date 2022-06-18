@@ -26,8 +26,7 @@ public class AppInitializer extends Application {
         primaryStage.setTitle("Hostel-Management-System");
         primaryStage.centerOnScreen();
         primaryStage.show();
-
-        Student student=new Student();
+       /* Student student=new Student();
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
@@ -38,7 +37,7 @@ public class AppInitializer extends Application {
         }
 
         transaction.commit();
-        session.close();
+        session.close();*/
     }
 
 }
