@@ -14,7 +14,15 @@
       <JFXButton layoutX="1.0" layoutY="176.0" onAction="#roomOnAction" prefHeight="41.0" prefWidth="165.0" styleClass="b1" text="Room            &gt;" />
       <Line endX="709.0" endY="-116.0" layoutX="315.0" layoutY="157.0" opacity="0.33" startX="-315.0" startY="-116.00001525878906" />
       <JFXButton layoutX="944.0" layoutY="9.0" onAction="#logoutOnAction" prefHeight="24.0" prefWidth="73.0" styleClass="logout" text="logout" />
-      <AnchorPane fx:id="slideContext" layoutX="178.0" layoutY="42.0" prefHeight="677.0" prefWidth="846.0" styleClass="pane1" />
+      <AnchorPane fx:id="slideContext" layoutX="178.0" layoutY="42.0" prefHeight="677.0" prefWidth="846.0" styleClass="pane1">
+         <children>
+            <Label layoutX="281.0" layoutY="198.0" prefHeight="211.0" prefWidth="278.0" text="Status">
+               <font>
+                  <Font size="55.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
       <JFXButton layoutX="1.0" layoutY="611.0" prefHeight="1.0" prefWidth="165.0" styleClass="b1" text="⚙ Admin‍">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -39,7 +47,7 @@
             <Font size="13.0" />
          </font>
       </JFXButton>
-      <Label layoutX="43.0" layoutY="8.0" text="Dashboard" textFill="#7a7c7e">
+      <Label layoutX="43.0" layoutY="8.0" text="Dashboard" textFill="#5b5c5e">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
