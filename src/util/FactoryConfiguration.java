@@ -22,8 +22,6 @@ public class FactoryConfiguration {
         configuration.setProperties(p);
 
         configuration.addAnnotatedClass(Student.class);
-
-
         sessionFactory = configuration.buildSessionFactory();
     }
 

@@ -1,3 +1,5 @@
+import dto.StudentDTO;
+import entity.Student;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,6 +9,7 @@ import org.hibernate.Transaction;
 import util.FactoryConfiguration;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class AppInitializer extends Application {
 
@@ -24,10 +27,18 @@ public class AppInitializer extends Application {
         primaryStage.centerOnScreen();
         primaryStage.show();
 
-      /*  Session session = FactoryConfiguration.getInstance().getSession();
+        Student student=new Student();
+        Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
+        try {
+            Date date = new Date();
+            session.save(new Student("S001","kamal","negombo","0772759120", date,"male"));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
         transaction.commit();
-        session.close();*/
+        session.close();
     }
 
 }

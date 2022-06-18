@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student {
+public class StudentDTO {
     private String studentId;
     private String name;
     private String address;
