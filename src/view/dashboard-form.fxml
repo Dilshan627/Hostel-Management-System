@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.DashboardFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="context" prefHeight="720.0" prefWidth="1024.0" styleClass="pane" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
+   <children>
+      <Label prefHeight="720.0" prefWidth="177.0" style="-fx-background-color: #D6DFEE;" stylesheets="@style/style.css" />
+      <JFXButton layoutY="188.0" onAction="#studentOnAction" prefHeight="41.0" prefWidth="177.0" styleClass="b1" text="Student" />
+      <JFXButton layoutX="-1.0" layoutY="229.0" onAction="#roomOnAction" prefHeight="41.0" prefWidth="177.0" styleClass="b1" text="Room" />
+      <JFXButton layoutX="-1.0" layoutY="270.0" prefHeight="41.0" prefWidth="177.0" styleClass="b1" text="registration" />
+      <JFXButton layoutY="311.0" prefHeight="41.0" prefWidth="177.0" styleClass="b1" text="Details" />
+      <Line endX="709.0" endY="-116.0" layoutX="315.0" layoutY="157.0" opacity="0.49" startX="-138.0" startY="-116.00001525878906" />
+      <JFXButton layoutX="946.0" layoutY="10.0" onAction="#logoutOnAction" prefHeight="24.0" prefWidth="73.0" styleClass="logout" text="logout" />
+      <AnchorPane fx:id="slideContext" layoutX="178.0" layoutY="42.0" prefHeight="677.0" prefWidth="846.0" styleClass="pane">
+         <children>
+            <JFXTextField layoutX="59.0" layoutY="67.0" promptText="Name" />
+            <JFXTextField layoutX="204.0" layoutY="67.0" promptText="Address" />
+            <JFXTextField layoutX="350.0" layoutY="67.0" promptText="Contact" />
+            <JFXTextField layoutX="495.0" layoutY="67.0" promptText="Dob" />
+            <JFXComboBox layoutX="642.0" layoutY="67.0" prefHeight="25.0" prefWidth="122.0" promptText="Gender" />
+            <Label layoutX="35.0" layoutY="14.0" text="S00-1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TableView layoutX="35.0" layoutY="229.0" prefHeight="354.0" prefWidth="776.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+            <JFXButton layoutX="257.0" layoutY="145.0" prefHeight="20.0" prefWidth="102.0" styleClass="btn" text="Add" />
+            <JFXButton layoutX="382.0" layoutY="145.0" prefHeight="25.0" prefWidth="102.0" styleClass="btn" text="Update" />
+            <JFXButton layoutX="509.0" layoutY="145.0" prefHeight="25.0" prefWidth="102.0" styleClass="btn" text="Delete" />
+         </children>
+      </AnchorPane>
+      <JFXButton layoutX="60.0" layoutY="31.0" prefHeight="56.0" prefWidth="56.0" styleClass="account" text="🙎‍♂️">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="22.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="64.0" layoutY="91.0" text="Admin">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="496.0" layoutY="14.0" prefHeight="25.0" prefWidth="147.0" text="10:30   16-06-2022">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

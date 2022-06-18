@@ -2,14 +2,88 @@
     -fx-background-color: #ffffff;
 }
 
-.button:hover{
+.pane1{
+    -fx-background-color: #EEF2F5;
+}
+
+.p{
+    -fx-background-color:  #00DBD5;
+    -fx-shape : "M101,76 l225,0 l-75,116 l80,109 l-231,0 l0,-225" ;
+}
+
+.p1{
+    -fx-background-color: #c2e1df;
+    -fx-shape : "M128,76 l48,0 l79,101 l-128,0 l-1,-98" ;
+}
+
+.b:hover{
     -fx-border-color: #5CACDF;
     -fx-background-color: #5CACDF;
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
 }
 
-.button{
+.b{
     -fx-border-color: #bdb7b7;
     -fx-border-radius: 20px;
 }
+.b1:hover{
+    -fx-border-color: #00DBD5;
+    -fx-background-color: #00DBD5;
+}
+
+.b1{
+    -fx-border-color: #bdb7b7;
+}
+.logout:hover{
+    -fx-border-color: #5CACDF;
+    -fx-border-radius: 5,4,3,5;
+}
+
+.logout{
+    -fx-background-color: #090a0c,
+    linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+    linear-gradient(#20262b, #191d22),
+    radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+}
+
+.account{
+    -fx-background-color: #c3c4c4,
+    linear-gradient(#d6d6d6 50%, white 100%),
+    radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0,1,1;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );
+    -fx-shape : "M 25, 50 a 25,25 0 1,1 50,0 a 25,25 0 1,1 -50,0" ;
+}
+
+.btn:hover{
+    -fx-border-color: #5CACDF;
+    -fx-border-radius: 3,2,1;
+}
+.btn{
+    -fx-background-color: #3c7fb1,
+    linear-gradient(#fafdfe, #e8f5fc),
+    linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
+    -fx-background-radius: 5px;
+    -fx-text-fill: black;
+}
+
+
+
+
+
+
+
+
+
+
+

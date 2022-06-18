@@ -7,44 +7,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1024.0" styleClass="pane" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
+<AnchorPane fx:id="context" prefHeight="720.0" prefWidth="1024.0" styleClass="pane" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
     <children>
         <Label alignment="CENTER" layoutX="616.0" layoutY="201.0" prefHeight="45.0" prefWidth="155.0" text="Login" textFill="#7a7c7e">
             <font>
                 <Font name="System Bold" size="30.0" />
             </font>
         </Label>
-        <JFXTextField layoutX="557.0" layoutY="297.0" prefHeight="25.0" prefWidth="281.0">
+        <JFXTextField labelFloat="true" layoutX="557.0" layoutY="297.0" prefHeight="25.0" prefWidth="281.0" promptText="User name">
             <font>
                 <Font size="14.0" />
             </font>
         </JFXTextField>
-        <JFXPasswordField layoutX="557.0" layoutY="355.0" prefHeight="25.0" prefWidth="281.0">
+        <JFXPasswordField labelFloat="true" layoutX="557.0" layoutY="355.0" prefHeight="25.0" prefWidth="281.0" promptText="password">
             <font>
                 <Font size="15.0" />
             </font>
         </JFXPasswordField>
-        <JFXButton layoutX="578.0" layoutY="437.0" prefHeight="31.0" prefWidth="122.0" text="Sign In">
+        <JFXButton layoutX="578.0" layoutY="437.0" onAction="#signOnAction" prefHeight="31.0" prefWidth="122.0" styleClass="b" text="Sign In">
             <font>
                 <Font size="13.0" />
             </font>
         </JFXButton>
-        <JFXButton layoutX="704.0" layoutY="435.0" prefHeight="31.0" prefWidth="122.0" text="Sign Up">
+        <JFXButton layoutX="704.0" layoutY="435.0" prefHeight="31.0" prefWidth="122.0" styleClass="b" text="Sign Up">
             <font>
                 <Font size="13.0" />
             </font>
         </JFXButton>
-        <Label prefHeight="720.0" prefWidth="477.0" style="-fx-background-color: #00DBD5;" />
-        <Label layoutX="395.0" layoutY="308.0" prefHeight="397.0" prefWidth="163.0" rotate="-21.8" style="-fx-background-color: #ffffff;" />
-        <Label layoutX="390.0" layoutY="7.0" prefHeight="385.0" prefWidth="155.0" rotate="21.0" style="-fx-background-color: #ffffff;" />
-        <Label layoutX="92.0" layoutY="241.0" prefHeight="102.0" prefWidth="100.0" text="D24" textFill="WHITE">
+      <Label prefHeight="720.0" prefWidth="518.0" styleClass="p1" text="Label" />
+        <Label prefHeight="720.0" prefWidth="454.0" styleClass="p">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font></Label>
+        <Label layoutX="103.0" layoutY="264.0" prefHeight="102.0" prefWidth="100.0" text="D24" textFill="WHITE">
             <font>
-                <Font name="System Bold" size="50.0" />
+                <Font name="Jokerman" size="50.0" />
             </font>
         </Label>
-        <Label layoutX="65.0" layoutY="343.0" prefHeight="102.0" prefWidth="155.0" text="Hostel" textFill="WHITE">
+        <Label layoutX="65.0" layoutY="334.0" prefHeight="102.0" prefWidth="185.0" text="Hostel" textFill="WHITE">
             <font>
-                <Font name="System Bold" size="50.0" />
+                <Font name="Berlin Sans FB Demi Bold" size="63.0" />
             </font>
         </Label>
     </children>
