@@ -1,7 +1,6 @@
 package bo;
 
 import bo.custom.impl.StudentBOImpl;
-import dao.custom.impl.StudentDAOImpl;
 
 public class BOFactory {
     private static BOFactory boFactory;

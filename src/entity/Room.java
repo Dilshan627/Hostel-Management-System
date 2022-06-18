@@ -9,24 +9,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Student implements SuperEntity {
+public class Room implements SuperEntity {
     @Id
-    @Column(name = "student_id")
-    private String studentId;
-    private String name;
-    private String address;
-    @Column(name = "contact_no")
-    private String contact;
-    private Date dob;
-    private String gender;
+    @Column(name = "room_id")
+    private String roomId;
+    private String type;
+    @Column(name = "monthly_rent")
+    private double rent;
+    private String qty;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "room")
     private List<Reserve> arrayList = new ArrayList();
 }

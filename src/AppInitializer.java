@@ -26,18 +26,19 @@ public class AppInitializer extends Application {
         primaryStage.setTitle("Hostel-Management-System");
         primaryStage.centerOnScreen();
         primaryStage.show();
-       /* Student student=new Student();
+
+        Student student=new Student();
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        try {
+       /* try {
             Date date = new Date();
             session.save(new Student("S001","kamal","negombo","0772759120", date,"male"));
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }
+        }*/
 
         transaction.commit();
-        session.close();*/
+        session.close();
     }
 
 }

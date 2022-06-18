@@ -12,13 +12,14 @@ public class StudentBOImpl implements StudentBO {
     StudentDAOImpl studentDAO= DAOFactory.getInstance().getDAO(DAOType.STUDENT);
     @Override
     public boolean add(StudentDTO studentDTO) throws Exception {
-       return studentDAO.save(new Student(
+      /* return studentDAO.save(new Student(
                 studentDTO.getStudentId(),
                 studentDTO.getName(),
                 studentDTO.getAddress(),
                 studentDTO.getContact(),
                 studentDTO.getDob(),
                 studentDTO.getGender()
-        ));
+        ));*/
+        return true;
     }
 }
