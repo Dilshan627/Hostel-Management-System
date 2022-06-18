@@ -3,7 +3,7 @@
 }
 
 .pane1{
-    -fx-background-color: #EEF2F5;
+    -fx-background-color: #F8F8F8;
 }
 
 .p{
@@ -30,10 +30,13 @@
 .b1:hover{
     -fx-border-color: #00DBD5;
     -fx-background-color: #00DBD5;
+    -fx-border-radius: 10px;
+    -fx-background-radius:  10px;
 }
 
 .b1{
-    -fx-border-color: #bdb7b7;
+    -fx-border-color: #e7e0e0;
+    -fx-border-radius: 10px;
 }
 .logout:hover{
     -fx-border-color: #5CACDF;

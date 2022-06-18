@@ -34,17 +34,17 @@
                 <Font size="13.0" />
             </font>
         </JFXButton>
-      <Label prefHeight="720.0" prefWidth="518.0" styleClass="p1" text="Label" />
-        <Label prefHeight="720.0" prefWidth="454.0" styleClass="p">
+      <Label prefHeight="720.0" prefWidth="556.0" styleClass="p1" text="Label" />
+        <Label prefHeight="720.0" prefWidth="499.0" styleClass="p">
          <font>
             <Font name="System Bold" size="9.0" />
          </font></Label>
-        <Label layoutX="103.0" layoutY="264.0" prefHeight="102.0" prefWidth="100.0" text="D24" textFill="WHITE">
+        <Label layoutX="119.0" layoutY="264.0" prefHeight="102.0" prefWidth="100.0" text="D24" textFill="WHITE">
             <font>
                 <Font name="Jokerman" size="50.0" />
             </font>
         </Label>
-        <Label layoutX="65.0" layoutY="334.0" prefHeight="102.0" prefWidth="185.0" text="Hostel" textFill="WHITE">
+        <Label layoutX="81.0" layoutY="334.0" prefHeight="102.0" prefWidth="185.0" text="Hostel" textFill="WHITE">
             <font>
                 <Font name="Berlin Sans FB Demi Bold" size="63.0" />
             </font>

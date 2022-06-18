@@ -9,8 +9,11 @@ public class DashboardFormController {
     public AnchorPane context;
     public AnchorPane slideContext;
 
-    public void studentOnAction(ActionEvent actionEvent) throws IOException {
+    public void homeOnAction(ActionEvent actionEvent) throws IOException {
         util.navigation.navigate(context,"dashboard");
+    }
+    public void studentOnAction(ActionEvent actionEvent) throws IOException {
+        util.navigation.navigate(slideContext,"student");
     }
 
     public void roomOnAction(ActionEvent actionEvent) throws IOException {
@@ -19,6 +22,5 @@ public class DashboardFormController {
     public void logoutOnAction(ActionEvent actionEvent) throws IOException {
         util.navigation.navigate(context,"login");
     }
-
 
 }

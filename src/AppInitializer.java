@@ -24,13 +24,10 @@ public class AppInitializer extends Application {
         primaryStage.centerOnScreen();
         primaryStage.show();
 
-        Session session = FactoryConfiguration.getInstance().getSession();
-
+      /*  Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-
         transaction.commit();
-
-        session.close();
+        session.close();*/
     }
 
 }
