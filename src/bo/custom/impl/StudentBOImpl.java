@@ -14,7 +14,7 @@ public class StudentBOImpl implements StudentBO {
     StudentDAOImpl studentDAO = DAOFactory.getInstance().getDAO(DAOType.STUDENT);
 
     @Override
-    public ArrayList<StudentDTO> getAllStudent() throws Exception {
+    public ArrayList<StudentDTO> getAll() throws Exception {
         ArrayList<Student> all = studentDAO.getAll();
         ArrayList<StudentDTO> allStudent = new ArrayList<>();
         for (Student student : all) {
@@ -36,7 +36,7 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean deleteStudent(String code) throws Exception {
+    public boolean delete(String code) throws Exception {
         return studentDAO.delete(code);
     }
 

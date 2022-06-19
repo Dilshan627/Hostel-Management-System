@@ -44,12 +44,6 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student search(String id) throws Exception {
-        return null;
-    }
-
-
-    @Override
     public boolean delete(String id) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();

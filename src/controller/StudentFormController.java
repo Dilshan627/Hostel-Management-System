@@ -9,7 +9,6 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import dto.StudentDTO;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -64,7 +63,7 @@ public class StudentFormController {
 
         ArrayList<StudentDTO> allStudent = null;
         try {
-            allStudent = studentBO.getAllStudent();
+            allStudent = studentBO.getAll();
             for (StudentDTO student : allStudent) {
                 tblStudent.getItems().add(new StudentTm(student.getStudentId(), student.getName(), student.getAddress(), student.getContact(), student.getDob(), student.getGender()));
             }
@@ -128,12 +127,12 @@ public class StudentFormController {
             String code = tblStudent.getSelectionModel().getSelectedItem().getStudentId();
 
             try {
-                studentBO.deleteStudent(code);
+                studentBO.delete(code);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
             tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
-                tblStudent.getSelectionModel().clearSelection();
+            tblStudent.getSelectionModel().clearSelection();
 
         }
     }

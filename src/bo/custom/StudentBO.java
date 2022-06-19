@@ -6,12 +6,13 @@ import dto.StudentDTO;
 import java.util.ArrayList;
 
 public interface StudentBO extends SuperBO {
-    ArrayList<StudentDTO> getAllStudent() throws Exception;
+
+    ArrayList<StudentDTO> getAll() throws Exception;
 
     boolean add(StudentDTO studentDTO) throws Exception;
 
     boolean update(StudentDTO studentDTO) throws Exception;
 
-    boolean deleteStudent(String code) throws Exception;
+    boolean delete(String code) throws Exception;
 
 }

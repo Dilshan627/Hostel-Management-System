@@ -1,5 +1,6 @@
 package dao;
 
+import dao.custom.impl.RoomDAOImpl;
 import dao.custom.impl.StudentDAOImpl;
 
 public class DAOFactory {
@@ -16,6 +17,8 @@ public class DAOFactory {
         switch (daoType) {
             case STUDENT:
                 return (T) new StudentDAOImpl();
+            case ROOM:
+                return (T) new RoomDAOImpl();
             default:
                 return null;
         }
