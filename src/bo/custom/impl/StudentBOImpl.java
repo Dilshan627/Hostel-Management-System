@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class StudentBOImpl implements StudentBO {
 
-    StudentDAOImpl studentDAO = DAOFactory.getInstance().getDAO(DAOType.STUDENT);
+    private final StudentDAOImpl studentDAO = DAOFactory.getInstance().getDAO(DAOType.STUDENT);
 
     @Override
     public ArrayList<StudentDTO> getAll() throws Exception {

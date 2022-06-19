@@ -19,7 +19,7 @@ import java.util.Arrays;
 public class RoomFormController {
     public JFXTextField txtPrice;
     public JFXTextField txtQty;
-    public JFXComboBox txtType;
+    public JFXComboBox<String> txtType;
     public Label txtId;
     public TableView<RoomTM> tblRoom;
     public JFXButton btnAdd;
@@ -52,8 +52,13 @@ public class RoomFormController {
 
     }
 
-
     public void addOnAction(ActionEvent actionEvent) {
+        int qty= Integer.parseInt(txtQty.getText());
+        try {
+            roomBO.add(new RoomDTO(txtId.getText(),txtType.getValue(),txtPrice.getText(),qty));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void btnNewOnAction(ActionEvent actionEvent) {
