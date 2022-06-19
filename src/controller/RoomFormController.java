@@ -31,6 +31,10 @@ public class RoomFormController {
         tblRoom.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("type"));
         tblRoom.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("rent"));
         tblRoom.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("qty"));
+        txtType.getItems().add("AC");
+        txtType.getItems().add("AC/Food ");
+        txtType.getItems().add("Non-AC");
+        txtType.getItems().add("Non-AC/Food");
         loadAllRoom();
         txtId.setText(generateNewId());
     }
