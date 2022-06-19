@@ -41,25 +41,21 @@ public class RoomFormController {
 
     private void loadAllRoom() {
         tblRoom.getItems().clear();
-
         ArrayList<RoomDTO> allRoom = null;
         try {
             allRoom = roomBO.getAll();
             for (RoomDTO room : allRoom) {
                 tblRoom.getItems().add(new RoomTM(room.getRoomId(), room.getType(), room.getRent(), room.getQty()));
             }
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     public void addOnAction(ActionEvent actionEvent) {
-        int qty= Integer.parseInt(txtQty.getText());
+        int qty = Integer.parseInt(txtQty.getText());
         try {
-            roomBO.add(new RoomDTO(txtId.getText(),txtType.getValue(),txtPrice.getText(),qty));
+            roomBO.add(new RoomDTO(txtId.getText(), txtType.getValue(), txtPrice.getText(), qty));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

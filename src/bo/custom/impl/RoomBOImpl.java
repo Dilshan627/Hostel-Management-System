@@ -20,7 +20,7 @@ public class RoomBOImpl implements RoomBO {
         for (Room room : list) {
             arrayList.add(new RoomDTO(room.getRoomId(), room.getType(), room.getRent(), room.getQty()));
         }
-        return null;
+        return arrayList;
     }
 
     @Override
