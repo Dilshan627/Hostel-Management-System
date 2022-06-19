@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import dto.StudentDTO;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -77,16 +78,48 @@ public class StudentFormController {
 
     public void addOnAction(ActionEvent actionEvent) {
         if (!txtName.getText().isEmpty() && !txtAddress.getText().isEmpty() && !txtContact.getText().isEmpty() && !cmdGender.getValue().isEmpty()) {
-            try {
-                studentBO.add(new StudentDTO(txtId.getText(), txtName.getText(), txtAddress.getText(), txtContact.getText(), String.valueOf(txtDob.getValue()), cmdGender.getValue()));
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+            String code = txtId.getText();
+            String dob = String.valueOf(txtDob.getValue());
+            if (btnAdd.getText().equalsIgnoreCase("Add")) {
+                try {
+                    if (existId(code)) {
+                        new Alert(Alert.AlertType.ERROR, code + " already exists").show();
+                    }
+                    studentBO.add(new StudentDTO(txtId.getText(), txtName.getText(), txtAddress.getText(), txtContact.getText(), String.valueOf(txtDob.getValue()), cmdGender.getValue()));
+
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+
+            } else {
+                try {
+                    if (!existId(code)) {
+                        new Alert(Alert.AlertType.ERROR, code + " already exists").show();
+                    }
+
+                    studentBO.update(new StudentDTO(txtId.getText(), txtName.getText(), txtAddress.getText(), txtContact.getText(), dob, cmdGender.getValue()));
+
+                    StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
+                    selectedStudent.setStudentId(txtId.getText());
+                    selectedStudent.setName(txtName.getText());
+                    selectedStudent.setAddress(txtAddress.getText());
+                    selectedStudent.setContact(txtContact.getText());
+                    selectedStudent.setDob(dob);
+                    selectedStudent.setGender(cmdGender.getValue());
+                    tblStudent.refresh();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         } else {
 
         }
         loadAllStudent();
         txtId.setText(generateNewId());
+    }
+
+    private boolean existId(String code) throws Exception {
+        return studentBO.studentExist(code);
     }
 
     public void newOnAction(ActionEvent actionEvent) {

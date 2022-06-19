@@ -29,4 +29,15 @@ public class StudentBOImpl implements StudentBO {
 
     }
 
+    @Override
+    public boolean update(StudentDTO studentDTO) throws Exception {
+        return studentDAO.update(new Student(studentDTO.getStudentId(), studentDTO.getName(), studentDTO.getAddress(), studentDTO.getContact(), studentDTO.getDob(), studentDTO.getGender()));
+
+    }
+
+    @Override
+    public boolean studentExist(String code) throws Exception {
+        return studentDAO.exist(code);
+    }
+
 }

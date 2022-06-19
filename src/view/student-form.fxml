@@ -31,9 +31,9 @@
             <TableColumn prefWidth="138.0" text="Gender" />
          </columns>
       </TableView>
-      <JFXButton fx:id="btnAdd" layoutX="329.0" layoutY="157.0" onAction="#addOnAction" prefHeight="20.0" prefWidth="102.0" styleClass="btn" text="Add" />
+      <JFXButton fx:id="btnAdd" layoutX="315.0" layoutY="157.0" onAction="#addOnAction" prefHeight="20.0" prefWidth="102.0" styleClass="btn" text="Add" />
       <JFXButton layoutX="721.0" layoutY="20.0" onAction="#newOnAction" prefHeight="25.0" prefWidth="102.0" styleClass="btn" text="+New" />
-      <JFXButton layoutX="444.0" layoutY="157.0" onAction="#deleteOnAction" prefHeight="25.0" prefWidth="102.0" styleClass="btn" text="Delete" />
+      <JFXButton layoutX="448.0" layoutY="157.0" onAction="#deleteOnAction" prefHeight="25.0" prefWidth="102.0" styleClass="btn" text="Delete" />
       <JFXDatePicker fx:id="txtDob" layoutX="482.0" layoutY="78.0" promptText="Date of birth" />
    </children>
 </AnchorPane>
