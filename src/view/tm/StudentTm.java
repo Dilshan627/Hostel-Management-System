@@ -1,15 +1,15 @@
-package dto;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package view.tm;
 
 
+import lombok.*;
 
-@Data
+import java.util.Date;
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentDTO {
+@ToString
+public class StudentTm {
     private String studentId;
     private String name;
     private String address;

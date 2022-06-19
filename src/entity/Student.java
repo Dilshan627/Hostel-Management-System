@@ -23,9 +23,18 @@ public class Student implements SuperEntity {
     private String address;
     @Column(name = "contact_no")
     private String contact;
-    private Date dob;
+    private String dob;
     private String gender;
 
     @OneToMany(mappedBy = "student")
     private List<Reserve> arrayList = new ArrayList();
+
+    public Student(String studentId, String name, String address, String contact, String dob, String gender) {
+        this.studentId = studentId;
+        this.name = name;
+        this.address = address;
+        this.contact = contact;
+        this.dob = dob;
+        this.gender = gender;
+    }
 }

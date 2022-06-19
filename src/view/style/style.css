@@ -18,7 +18,7 @@
 
 .b:hover{
     -fx-border-color: #5CACDF;
-    -fx-background-color: #5CACDF;
+    -fx-background-color: #00DBD5;
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
 }
@@ -28,7 +28,7 @@
     -fx-border-radius: 20px;
 }
 .b1:hover{
-    -fx-border-color: #00DBD5;
+    -fx-border-color:#5CACDF;
     -fx-background-color: #00DBD5;
     -fx-border-radius: 10px;
     -fx-background-radius:  10px;
@@ -69,17 +69,21 @@
 }
 
 .btn:hover{
-    -fx-border-color: #00DBD5;
-    -fx-border-radius: 3,2,1;
+    -fx-border-color: #5CACDF;
+    -fx-border-radius: 10px;
     -fx-background-color: #00DBD5;
-    -fx-background-radius: 3,2,1;
+    -fx-background-radius: 10px;
 }
 .btn{
-    -fx-background-color: #3c7fb1,
+   /* -fx-background-color: #3c7fb1,
     linear-gradient(#fafdfe, #e8f5fc),
     linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
     -fx-background-radius: 5px;
-    -fx-text-fill: black;
+    -fx-text-fill: black;*/
+    -fx-background-color: #ffffff;
+    -fx-border-color: #5b5c5e;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
 }
 
 

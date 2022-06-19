@@ -18,5 +18,4 @@ public interface CrudDAO<T extends SuperEntity, ID> extends SuperDAO {
 
     boolean delete(ID id) throws Exception;
 
-    String generateNewID() throws Exception;
 }
