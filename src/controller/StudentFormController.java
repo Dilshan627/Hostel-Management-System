@@ -29,7 +29,7 @@ public class StudentFormController {
     public JFXDatePicker txtDob;
     public TableView<StudentTm> tblStudent;
 
-    StudentBOImpl studentBO = BOFactory.getInstance().getBO(BOType.Student);
+    private final StudentBOImpl studentBO = BOFactory.getInstance().getBO(BOType.Student);
 
     public void initialize() {
         tblStudent.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("studentId"));

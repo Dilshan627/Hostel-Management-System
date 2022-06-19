@@ -1,13 +1,17 @@
 package controller;
 
+import bo.BOFactory;
+import bo.BOType;
+import bo.custom.impl.RoomBOImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import dto.RoomDTO;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import view.tm.RoomTM;
-import view.tm.StudentTm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,14 +21,37 @@ public class RoomFormController {
     public JFXTextField txtQty;
     public JFXComboBox txtType;
     public Label txtId;
-    public TableView tblRoom;
+    public TableView<RoomTM> tblRoom;
     public JFXButton btnAdd;
 
-    public void initialize(){
+    private final RoomBOImpl roomBO = BOFactory.getInstance().getBO(BOType.ROOM);
 
-
+    public void initialize() {
+        tblRoom.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("roomId"));
+        tblRoom.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("type"));
+        tblRoom.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("rent"));
+        tblRoom.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("qty"));
+        loadAllRoom();
         txtId.setText(generateNewId());
     }
+
+    private void loadAllRoom() {
+        tblRoom.getItems().clear();
+
+        ArrayList<RoomDTO> allRoom = null;
+        try {
+            allRoom = roomBO.getAll();
+            for (RoomDTO room : allRoom) {
+                tblRoom.getItems().add(new RoomTM(room.getRoomId(), room.getType(), room.getRent(), room.getQty()));
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
 
     public void addOnAction(ActionEvent actionEvent) {
     }

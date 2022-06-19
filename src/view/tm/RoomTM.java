@@ -12,6 +12,6 @@ import lombok.ToString;
 public class RoomTM {
     private String roomId;
     private String type;
-    private double rent;
-    private String qty;
+    private String rent;
+    private int qty;
 }

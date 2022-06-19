@@ -20,8 +20,8 @@ public class Room implements SuperEntity {
     private String roomId;
     private String type;
     @Column(name = "monthly_rent")
-    private double rent;
-    private String qty;
+    private String rent;
+    private int qty;
 
    @OneToMany(mappedBy = "room")
     private List<Reserve> list = new ArrayList();
