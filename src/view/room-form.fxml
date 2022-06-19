@@ -11,22 +11,24 @@
 
 <AnchorPane prefHeight="677.0" prefWidth="846.0" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoomFormController">
    <children>
-      <JFXTextField layoutX="339.0" layoutY="77.0" promptText="Price" />
-      <JFXTextField layoutX="485.0" layoutY="77.0" promptText="Qty" />
-      <JFXComboBox layoutX="206.0" layoutY="77.0" prefHeight="25.0" prefWidth="122.0" promptText="Type" />
-      <Label layoutX="38.0" layoutY="22.0" text="R00-1">
+      <JFXTextField fx:id="txtPrice" alignment="CENTER" layoutX="375.0" layoutY="88.0" promptText="Price" />
+      <JFXTextField fx:id="txtQty" alignment="CENTER" layoutX="546.0" layoutY="88.0" promptText="Qty" />
+      <JFXComboBox fx:id="txtType" layoutX="210.0" layoutY="88.0" prefHeight="25.0" prefWidth="122.0" promptText="Type" />
+      <Label fx:id="txtId" layoutX="45.0" layoutY="24.0" prefHeight="27.0" prefWidth="81.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TableView layoutX="45.0" layoutY="217.0" prefHeight="354.0" prefWidth="776.0">
+      <TableView fx:id="tblRoom" layoutX="45.0" layoutY="239.0" prefHeight="354.0" prefWidth="776.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="178.0" text="Room ID" />
+            <TableColumn prefWidth="208.0" text="Room Type" />
+            <TableColumn prefWidth="232.0" text="Price" />
+            <TableColumn prefWidth="152.0" text="Qty" />
          </columns>
       </TableView>
-      <JFXButton layoutX="267.0" layoutY="151.0" prefHeight="20.0" prefWidth="102.0" styleClass="btn" text="Add" />
-      <JFXButton layoutX="392.0" layoutY="151.0" prefHeight="25.0" prefWidth="102.0" styleClass="btn" text="Update" />
-      <JFXButton layoutX="519.0" layoutY="151.0" prefHeight="25.0" prefWidth="102.0" styleClass="btn" text="Delete" />
+      <JFXButton fx:id="btnAdd" layoutX="315.0" layoutY="157.0" onAction="#addOnAction" prefHeight="20.0" prefWidth="102.0" styleClass="btn" text="Add" />
+      <JFXButton layoutX="721.0" layoutY="20.0" onAction="#btnNewOnAction" prefHeight="25.0" prefWidth="102.0" styleClass="btn" text="+New" />
+      <JFXButton layoutX="448.0" layoutY="157.0" onAction="#deleteOnAction" prefHeight="25.0" prefWidth="102.0" styleClass="btn" text="Delete" />
    </children>
 </AnchorPane>
