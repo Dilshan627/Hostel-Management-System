@@ -82,9 +82,6 @@ public class StudentFormController {
             String dob = String.valueOf(txtDob.getValue());
             if (btnAdd.getText().equalsIgnoreCase("Add")) {
                 try {
-                    if (existId(code)) {
-                        new Alert(Alert.AlertType.ERROR, code + " already exists").show();
-                    }
                     studentBO.add(new StudentDTO(txtId.getText(), txtName.getText(), txtAddress.getText(), txtContact.getText(), String.valueOf(txtDob.getValue()), cmdGender.getValue()));
 
                 } catch (Exception e) {
@@ -93,10 +90,6 @@ public class StudentFormController {
 
             } else {
                 try {
-                    if (!existId(code)) {
-                        new Alert(Alert.AlertType.ERROR, code + " already exists").show();
-                    }
-
                     studentBO.update(new StudentDTO(txtId.getText(), txtName.getText(), txtAddress.getText(), txtContact.getText(), dob, cmdGender.getValue()));
 
                     StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
@@ -118,10 +111,6 @@ public class StudentFormController {
         txtId.setText(generateNewId());
     }
 
-    private boolean existId(String code) throws Exception {
-        return studentBO.studentExist(code);
-    }
-
     public void newOnAction(ActionEvent actionEvent) {
         txtId.setText(generateNewId());
         txtName.clear();
@@ -135,6 +124,18 @@ public class StudentFormController {
     }
 
     public void deleteOnAction(ActionEvent actionEvent) {
+        if (!txtName.getText().isEmpty() && !txtAddress.getText().isEmpty() && !txtContact.getText().isEmpty() && !cmdGender.getValue().isEmpty()) {
+            String code = tblStudent.getSelectionModel().getSelectedItem().getStudentId();
+
+            try {
+                studentBO.deleteStudent(code);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
+                tblStudent.getSelectionModel().clearSelection();
+
+        }
     }
 
     private String generateNewId() {

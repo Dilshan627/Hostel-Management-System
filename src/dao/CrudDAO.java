@@ -14,7 +14,6 @@ public interface CrudDAO<T extends SuperEntity, ID> extends SuperDAO {
 
     T search(ID id) throws Exception;
 
-    boolean exist(ID id) throws Exception;
 
     boolean delete(ID id) throws Exception;
 

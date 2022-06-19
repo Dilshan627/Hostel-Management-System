@@ -36,8 +36,8 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean studentExist(String code) throws Exception {
-        return studentDAO.exist(code);
+    public boolean deleteStudent(String code) throws Exception {
+        return studentDAO.delete(code);
     }
 
 }
