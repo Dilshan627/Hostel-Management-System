@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="677.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistrationFormController">
+   <children>
+      <TableView layoutX="73.0" layoutY="229.0" prefHeight="343.0" prefWidth="687.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <JFXComboBox layoutX="131.0" layoutY="86.0" prefHeight="25.0" prefWidth="128.0" />
+      <JFXComboBox layoutX="289.0" layoutY="87.0" prefHeight="25.0" prefWidth="128.0" />
+      <Label layoutX="504.0" layoutY="90.0" prefHeight="25.0" prefWidth="107.0" text="room Status" />
+      <JFXButton layoutX="336.0" layoutY="155.0" prefHeight="40.0" prefWidth="128.0" text="room add" />
+   </children>
+</AnchorPane>

@@ -49,4 +49,15 @@ public class DashboardFormController {
         util.navigation.navigate(context, "login");
     }
 
+    public void accountOnAction(ActionEvent actionEvent) throws IOException {
+        util.navigation.navigate(slideContext, "account");
+    }
+
+    public void registrationOnAction(ActionEvent actionEvent) throws IOException {
+        util.navigation.navigate(slideContext, "registration");
+    }
+
+    public void detailsOnAction(ActionEvent actionEvent) throws IOException {
+        util.navigation.navigate(slideContext, "details");
+    }
 }

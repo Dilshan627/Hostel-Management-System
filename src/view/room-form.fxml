@@ -23,7 +23,7 @@
          <columns>
             <TableColumn prefWidth="178.0" text="Room ID" />
             <TableColumn prefWidth="208.0" text="Room Type" />
-            <TableColumn prefWidth="232.0" text="Price" />
+            <TableColumn prefWidth="232.0" text="Key Money (LKR)" />
             <TableColumn prefWidth="152.0" text="Qty" />
          </columns>
       </TableView>

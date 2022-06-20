@@ -23,7 +23,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <JFXButton layoutX="1.0" layoutY="611.0" prefHeight="1.0" prefWidth="165.0" styleClass="b1" text="⚙ Admin‍">
+      <JFXButton layoutX="1.0" layoutY="611.0" onAction="#accountOnAction" prefHeight="1.0" prefWidth="165.0" styleClass="b1" text="⚙ Admin‍">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -37,12 +37,12 @@
          </font>
       </Label>
       <Line endX="62.0" endY="648.0" layoutX="116.0" layoutY="72.0" opacity="0.26" startX="61.0" startY="-71.0" />
-      <JFXButton layoutX="1.0" layoutY="218.0" prefHeight="41.0" prefWidth="165.0" styleClass="b1" text="registration  &gt;">
+      <JFXButton layoutX="1.0" layoutY="218.0" onAction="#registrationOnAction" prefHeight="41.0" prefWidth="165.0" styleClass="b1" text="registration  &gt;">
          <font>
             <Font size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1.0" layoutY="260.0" prefHeight="41.0" prefWidth="165.0" styleClass="b1" text="details          &gt;">
+      <JFXButton layoutX="1.0" layoutY="260.0" onAction="#detailsOnAction" prefHeight="41.0" prefWidth="165.0" styleClass="b1" text="details          &gt;">
          <font>
             <Font size="13.0" />
          </font>
