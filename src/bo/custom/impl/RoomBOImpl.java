@@ -30,11 +30,11 @@ public class RoomBOImpl implements RoomBO {
 
     @Override
     public boolean update(RoomDTO roomDTO) throws Exception {
-        return false;
+        return roomDAO.update(new Room(roomDTO.getRoomId(), roomDTO.getType(), roomDTO.getRent(), roomDTO.getQty()));
     }
 
     @Override
     public boolean delete(String code) throws Exception {
-        return false;
+        return roomDAO.delete(code);
     }
 }

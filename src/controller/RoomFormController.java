@@ -35,6 +35,15 @@ public class RoomFormController {
         txtType.getItems().add("AC/Food ");
         txtType.getItems().add("Non-AC");
         txtType.getItems().add("Non-AC/Food");
+        tblRoom.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            btnAdd.setText(newValue != null ? "Update" : "Add");
+            if (newValue != null) {
+                txtId.setText(newValue.getRoomId());
+                txtType.setValue(newValue.getType());
+                txtPrice.setText(newValue.getRent());
+                txtQty.setText(String.valueOf(newValue.getQty()));
+            }
+        });
         loadAllRoom();
         txtId.setText(generateNewId());
     }
@@ -53,18 +62,57 @@ public class RoomFormController {
     }
 
     public void addOnAction(ActionEvent actionEvent) {
-        int qty = Integer.parseInt(txtQty.getText());
-        try {
-            roomBO.add(new RoomDTO(txtId.getText(), txtType.getValue(), txtPrice.getText(), qty));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        if (!txtPrice.getText().isEmpty() && !txtQty.getText().isEmpty() && !txtType.getValue().isEmpty()) {
+            int qty = Integer.parseInt(txtQty.getText());
+            if (btnAdd.getText().equalsIgnoreCase("Add")) {
+                try {
+                    roomBO.add(new RoomDTO(txtId.getText(), txtType.getValue(), txtPrice.getText(), qty));
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            } else {
+                try {
+                    roomBO.update(new RoomDTO(txtId.getText(), txtType.getValue(), txtPrice.getText(), qty));
+                    RoomTM selectedRoom = tblRoom.getSelectionModel().getSelectedItem();
+                    selectedRoom.setRoomId(txtId.getText());
+                    selectedRoom.setType(txtType.getValue());
+                    selectedRoom.setRent(txtPrice.getText());
+                    selectedRoom.setQty(qty);
+                    tblRoom.refresh();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+        } else {
+            System.out.println("kk");
         }
+
+        loadAllRoom();
+        txtId.setText(generateNewId());
     }
 
     public void btnNewOnAction(ActionEvent actionEvent) {
+        txtId.setText(generateNewId());
+        txtPrice.clear();
+        txtQty.clear();
+        txtType.setValue("");
+        btnAdd.setText("Add");
+        txtType.requestFocus();
+        tblRoom.getSelectionModel().clearSelection();
     }
 
     public void deleteOnAction(ActionEvent actionEvent) {
+        if (!txtPrice.getText().isEmpty() && !txtQty.getText().isEmpty() && !txtType.getValue().isEmpty()) {
+            String code = txtId.getText();
+            try {
+                roomBO.delete(code);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+            tblRoom.getItems().remove(tblRoom.getSelectionModel().getSelectedItem());
+            tblRoom.getSelectionModel().clearSelection();
+        }
     }
 
     private String generateNewId() {
