@@ -8,23 +8,22 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.RoomDTO;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import view.tm.RoomTM;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class RoomFormController {
     public JFXTextField txtPrice;
     public JFXTextField txtQty;
     public JFXComboBox<String> txtType;
-    public Label txtId;
+
     public TableView<RoomTM> tblRoom;
     public JFXButton btnAdd;
 
     private final RoomBOImpl roomBO = BOFactory.getInstance().getBO(BOType.ROOM);
+    public JFXTextField txtId;
 
     public void initialize() {
         tblRoom.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("roomId"));
@@ -45,7 +44,6 @@ public class RoomFormController {
             }
         });
         loadAllRoom();
-        txtId.setText(generateNewId());
     }
 
     private void loadAllRoom() {
@@ -89,11 +87,10 @@ public class RoomFormController {
         }
 
         loadAllRoom();
-        txtId.setText(generateNewId());
     }
 
     public void btnNewOnAction(ActionEvent actionEvent) {
-        txtId.setText(generateNewId());
+        txtId.clear();
         txtPrice.clear();
         txtQty.clear();
         txtType.setValue("");
@@ -115,20 +112,4 @@ public class RoomFormController {
         }
     }
 
-    private String generateNewId() {
-        if (tblRoom.getItems().isEmpty()) {
-            return "R00-001";
-
-        } else {
-            String id = getLastItemId();
-            int newItemId = Integer.parseInt(id.replace("R00-", "")) + 1;
-            return String.format("R00-%03d", newItemId);
-        }
-    }
-
-    private String getLastItemId() {
-        ArrayList<RoomTM> tempItemList = new ArrayList<>(tblRoom.getItems());
-        Arrays.sort(new ArrayList[]{tempItemList});
-        return tempItemList.get(tempItemList.size() - 1).getRoomId();
-    }
 }

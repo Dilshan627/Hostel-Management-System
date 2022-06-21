@@ -38,6 +38,8 @@ public class LoginFormController {
 
         btnSlideSignup.setVisible(true);
         btnSlideSignIn.setVisible(true);
+
+
     }
 
     public void slideSignOnAction(ActionEvent actionEvent) {

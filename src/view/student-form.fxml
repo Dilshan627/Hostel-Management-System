@@ -4,23 +4,16 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="677.0" prefWidth="846.0" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentFormController">
    <children>
-      <JFXTextField fx:id="txtName" layoutX="42.0" layoutY="77.0" promptText="Name" />
-      <JFXTextField fx:id="txtAddress" layoutX="188.0" layoutY="77.0" promptText="Address" />
-      <JFXTextField fx:id="txtContact" layoutX="334.0" layoutY="77.0" promptText="Contact" />
-      <JFXComboBox fx:id="cmdGender" layoutX="666.0" layoutY="77.0" prefHeight="25.0" prefWidth="122.0" promptText="Gender" />
-      <Label fx:id="txtId" layoutX="45.0" layoutY="24.0" prefHeight="27.0" prefWidth="102.0">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
+      <JFXTextField fx:id="txtName" layoutX="113.0" layoutY="77.0" promptText="Name" />
+      <JFXTextField fx:id="txtAddress" layoutX="259.0" layoutY="77.0" promptText="Address" />
+      <JFXTextField fx:id="txtContact" layoutX="404.0" layoutY="77.0" promptText="Contact" />
+      <JFXComboBox fx:id="cmdGender" layoutX="717.0" layoutY="77.0" prefHeight="25.0" prefWidth="122.0" promptText="Gender" />
       <TableView fx:id="tblStudent" layoutX="45.0" layoutY="239.0" prefHeight="354.0" prefWidth="776.0">
          <columns>
             <TableColumn prefWidth="98.0" text="ID" />
@@ -34,6 +27,7 @@
       <JFXButton fx:id="btnAdd" layoutX="315.0" layoutY="157.0" onAction="#addOnAction" prefHeight="20.0" prefWidth="102.0" styleClass="btn" text="Add" />
       <JFXButton layoutX="721.0" layoutY="20.0" onAction="#newOnAction" prefHeight="25.0" prefWidth="102.0" styleClass="btn" text="+New" />
       <JFXButton layoutX="448.0" layoutY="157.0" onAction="#deleteOnAction" prefHeight="25.0" prefWidth="102.0" styleClass="btn" text="Delete" />
-      <JFXDatePicker fx:id="txtDob" layoutX="482.0" layoutY="78.0" promptText="Date of birth" />
+      <JFXDatePicker fx:id="txtDob" layoutX="551.0" layoutY="78.0" prefHeight="25.0" prefWidth="153.0" promptText="Date of birth" />
+      <JFXTextField fx:id="txtId" layoutX="11.0" layoutY="78.0" prefHeight="25.0" prefWidth="93.0" promptText="Student Id" />
    </children>
 </AnchorPane>

@@ -25,11 +25,12 @@ public class StudentFormController {
     public JFXTextField txtContact;
     public JFXComboBox<String> cmdGender;
     public JFXButton btnAdd;
-    public Label txtId;
+
     public JFXDatePicker txtDob;
     public TableView<StudentTm> tblStudent;
 
     private final StudentBOImpl studentBO = BOFactory.getInstance().getBO(BOType.Student);
+    public JFXTextField txtId;
 
     public void initialize() {
         tblStudent.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("studentId"));
@@ -55,7 +56,6 @@ public class StudentFormController {
         });
 
         loadAllStudent();
-        txtId.setText(generateNewId());
     }
 
     private void loadAllStudent() {
@@ -107,11 +107,11 @@ public class StudentFormController {
 
         }
         loadAllStudent();
-        txtId.setText(generateNewId());
+
     }
 
     public void newOnAction(ActionEvent actionEvent) {
-        txtId.setText(generateNewId());
+        txtId.clear();
         txtName.clear();
         txtAddress.clear();
         txtContact.clear();
@@ -137,22 +137,6 @@ public class StudentFormController {
         }
     }
 
-    private String generateNewId() {
-        if (tblStudent.getItems().isEmpty()) {
-            return "S00-001";
-
-        } else {
-            String id = getLastItemId();
-            int newItemId = Integer.parseInt(id.replace("S00-", "")) + 1;
-            return String.format("S00-%03d", newItemId);
-        }
-    }
-
-    private String getLastItemId() {
-        ArrayList<StudentTm> tempItemList = new ArrayList<>(tblStudent.getItems());
-        Arrays.sort(new ArrayList[]{tempItemList});
-        return tempItemList.get(tempItemList.size() - 1).getStudentId();
-    }
 
 
 }

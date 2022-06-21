@@ -15,8 +15,6 @@ public class Reserve implements SuperEntity {
     @Column(name = "res_id")
     private String resId;
     private Date date;
-    @Column(name = "key_money")
-    private String keyMoney;
 
     @ManyToOne
     @JoinColumn(name = "student_id")
@@ -25,6 +23,8 @@ public class Reserve implements SuperEntity {
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
+
+    private String status;
 
 
     public Student getStudent() {
