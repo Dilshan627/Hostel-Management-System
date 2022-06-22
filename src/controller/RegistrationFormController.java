@@ -7,6 +7,7 @@ import bo.custom.impl.StudentBOImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import dto.RoomDTO;
 import dto.StudentDTO;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class RegistrationFormController {
     public JFXComboBox<String> cmbStudentId;
-    public JFXComboBox cmbRoomId;
+    public JFXComboBox<String> cmbRoomId;
     public JFXDatePicker cmbDate;
 
     private final StudentBOImpl studentBO = BOFactory.getInstance().getBO(BOType.Student);
@@ -24,6 +25,9 @@ public class RegistrationFormController {
     public JFXTextField txtContact;
     public JFXTextField txtDob;
     public JFXTextField txtGender;
+    public JFXTextField txtType;
+    public JFXTextField txtRent;
+    public JFXTextField txtQty;
 
     public void initialize() {
         cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -36,6 +40,21 @@ public class RegistrationFormController {
                         txtContact.setText(dto.getContact());
                         txtDob.setText(dto.getDob());
                         txtGender.setText(dto.getGender());
+                    }
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        cmbRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                try {
+                    List<RoomDTO> search = roomBO.search(newValue);
+                    for (RoomDTO dto : search) {
+                        txtType.setText(dto.getType());
+                        txtRent.setText(dto.getRent());
+                        txtQty.setText(String.valueOf(dto.getQty()));
                     }
 
                 } catch (IOException e) {

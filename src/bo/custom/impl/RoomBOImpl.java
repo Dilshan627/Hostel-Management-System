@@ -44,4 +44,14 @@ public class RoomBOImpl implements RoomBO {
     public List<String> roomId() throws IOException {
         return roomDAO.roomId();
     }
+
+    @Override
+    public List<RoomDTO> search(String id) throws IOException {
+        List<Room> list = roomDAO.search(id);
+        List<RoomDTO> roomDTO = new ArrayList<>();
+        for (Room room:list) {
+            roomDTO.add(new RoomDTO(room.getRoomId(), room.getType(), room.getRent(), room.getQty()));
+        }
+        return roomDTO;
+    }
 }

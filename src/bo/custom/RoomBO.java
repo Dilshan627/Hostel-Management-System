@@ -2,7 +2,6 @@ package bo.custom;
 
 import bo.SuperBO;
 import dto.RoomDTO;
-import dto.StudentDTO;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,4 +18,6 @@ public interface RoomBO extends SuperBO {
     boolean delete(String code) throws Exception;
 
     List<String> roomId() throws IOException;
+
+    List<RoomDTO> search(String id) throws IOException;
 }

@@ -12,7 +12,7 @@
    <children>
       <Label layoutX="-12.0" layoutY="1.0" opacity="0.43" prefHeight="677.0" prefWidth="859.0" />
       <JFXComboBox fx:id="cmbStudentId" layoutX="118.0" layoutY="92.0" prefHeight="25.0" prefWidth="190.0" promptText="student Id" />
-      <JFXComboBox fx:id="cmbRoomId" layoutX="372.0" layoutY="92.0" prefHeight="25.0" prefWidth="190.0" />
+      <JFXComboBox fx:id="cmbRoomId" layoutX="372.0" layoutY="92.0" prefHeight="25.0" prefWidth="190.0" promptText="room Id" />
       <Label layoutX="375.0" layoutY="178.0" prefHeight="25.0" prefWidth="107.0" text="room Status" />
       <JFXButton layoutX="639.0" layoutY="557.0" prefHeight="40.0" prefWidth="128.0" text="add" />
       <JFXDatePicker fx:id="cmbDate" layoutX="606.0" layoutY="92.0" />
@@ -38,17 +38,17 @@
             <Font size="13.0" />
          </font>
       </JFXTextField>
-      <JFXTextField layoutX="361.0" layoutY="262.0" prefHeight="25.0" prefWidth="217.0">
+      <JFXTextField fx:id="txtType" layoutX="361.0" layoutY="262.0" prefHeight="25.0" prefWidth="217.0" promptText="Type">
          <font>
             <Font size="13.0" />
          </font>
       </JFXTextField>
-      <JFXTextField layoutX="361.0" layoutY="313.0" prefHeight="25.0" prefWidth="217.0">
+      <JFXTextField fx:id="txtRent" layoutX="361.0" layoutY="313.0" prefHeight="25.0" prefWidth="217.0" promptText="Rent">
          <font>
             <Font size="13.0" />
          </font>
       </JFXTextField>
-      <JFXTextField layoutX="360.0" layoutY="372.0" prefHeight="25.0" prefWidth="217.0">
+      <JFXTextField fx:id="txtQty" layoutX="360.0" layoutY="372.0" prefHeight="25.0" prefWidth="217.0" promptText="qty">
          <font>
             <Font size="13.0" />
          </font>
