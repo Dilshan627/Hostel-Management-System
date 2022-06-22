@@ -3,7 +3,6 @@ package entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -14,7 +13,7 @@ public class Reserve implements SuperEntity {
     @Id
     @Column(name = "res_id")
     private String resId;
-    private Date date;
+    private String date;
 
     @ManyToOne
     @JoinColumn(name = "student_id")

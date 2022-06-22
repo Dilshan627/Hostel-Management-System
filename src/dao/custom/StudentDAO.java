@@ -1,8 +1,12 @@
 package dao.custom;
 
 import dao.CrudDAO;
-import dao.SuperDAO;
 import entity.Student;
 
-public interface StudentDAO extends CrudDAO<Student,String> {
+import java.io.IOException;
+import java.util.List;
+
+public interface StudentDAO extends CrudDAO<Student, String> {
+
+    List<String> StudentId() throws IOException;
 }

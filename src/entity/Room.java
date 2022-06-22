@@ -16,10 +16,10 @@ import java.util.List;
 @Entity
 public class Room implements SuperEntity {
     @Id
-    @Column(name = "room_id")
+
     private String roomId;
     private String type;
-    @Column(name = "monthly_rent")
+
     private String rent;
     private int qty;
 

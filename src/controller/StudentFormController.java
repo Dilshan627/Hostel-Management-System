@@ -9,14 +9,12 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import dto.StudentDTO;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import view.tm.StudentTm;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class StudentFormController {
 
@@ -136,7 +134,6 @@ public class StudentFormController {
 
         }
     }
-
 
 
 }

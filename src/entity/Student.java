@@ -17,11 +17,11 @@ import java.util.List;
 @Entity
 public class Student implements SuperEntity {
     @Id
-    @Column(name = "student_id")
+
     private String studentId;
     private String name;
     private String address;
-    @Column(name = "contact_no")
+
     private String contact;
     private String dob;
     private String gender;

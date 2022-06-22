@@ -1,5 +1,6 @@
 package dao;
 
+import dao.custom.impl.RegistrationDAOImpl;
 import dao.custom.impl.RoomDAOImpl;
 import dao.custom.impl.StudentDAOImpl;
 
@@ -19,6 +20,8 @@ public class DAOFactory {
                 return (T) new StudentDAOImpl();
             case ROOM:
                 return (T) new RoomDAOImpl();
+            case RESERVE:
+                return (T) new RegistrationDAOImpl();
             default:
                 return null;
         }

@@ -7,7 +7,9 @@ import dao.custom.impl.StudentDAOImpl;
 import dto.StudentDTO;
 import entity.Student;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentBOImpl implements StudentBO {
 
@@ -38,6 +40,11 @@ public class StudentBOImpl implements StudentBO {
     @Override
     public boolean delete(String code) throws Exception {
         return studentDAO.delete(code);
+    }
+
+    @Override
+    public List<String> StudentId() throws IOException {
+        return studentDAO.StudentId();
     }
 
 }

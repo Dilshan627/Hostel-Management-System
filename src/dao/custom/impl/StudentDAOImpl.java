@@ -4,8 +4,10 @@ import dao.custom.StudentDAO;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,4 +55,14 @@ public class StudentDAOImpl implements StudentDAO {
         return true;
     }
 
+    @Override
+    public List<String> StudentId() throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Query studentId = session.createQuery("SELECT studentId FROM Student");
+        List<String> list = studentId.list();
+        transaction.commit();
+        session.close();
+        return list;
+    }
 }
