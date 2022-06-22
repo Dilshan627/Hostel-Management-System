@@ -1,12 +1,17 @@
 package bo.custom;
 
+import bo.SuperBO;
 import dto.ReserveDTO;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface RegistrationBo {
+public interface RegistrationBo extends SuperBO {
 
     ArrayList<ReserveDTO> getAll() throws Exception;
 
     boolean add(ReserveDTO reserveDTO) throws Exception;
+
+    String generateNewID() throws IOException;
 }

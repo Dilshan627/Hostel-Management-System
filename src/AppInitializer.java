@@ -1,11 +1,7 @@
-import entity.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import util.FactoryConfiguration;
 
 import java.io.IOException;
 
@@ -24,6 +20,7 @@ public class AppInitializer extends Application {
         primaryStage.setTitle("Hostel-Management-System");
         primaryStage.centerOnScreen();
         primaryStage.show();
+
     }
 
 }

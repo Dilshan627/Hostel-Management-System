@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Entity
 public class Reserve implements SuperEntity {
     @Id
-    @Column(name = "res_id")
     private String resId;
     private String date;
 

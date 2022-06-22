@@ -2,6 +2,7 @@ package controller;
 
 import bo.BOFactory;
 import bo.BOType;
+import bo.custom.impl.RegistrationBOImpl;
 import bo.custom.impl.RoomBOImpl;
 import bo.custom.impl.StudentBOImpl;
 import com.jfoenix.controls.JFXComboBox;
@@ -9,6 +10,7 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import dto.RoomDTO;
 import dto.StudentDTO;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,6 +22,8 @@ public class RegistrationFormController {
 
     private final StudentBOImpl studentBO = BOFactory.getInstance().getBO(BOType.Student);
     private final RoomBOImpl roomBO = BOFactory.getInstance().getBO(BOType.ROOM);
+
+    private final RegistrationBOImpl registrationBO = BOFactory.getInstance().getBO(BOType.RESERVE);
     public JFXTextField txtName;
     public JFXTextField txtAddress;
     public JFXTextField txtContact;
@@ -28,6 +32,7 @@ public class RegistrationFormController {
     public JFXTextField txtType;
     public JFXTextField txtRent;
     public JFXTextField txtQty;
+    public Label lblId;
 
     public void initialize() {
         cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -62,10 +67,9 @@ public class RegistrationFormController {
                 }
             }
         });
-
-
         studentIdLoad();
         roomIdLoad();
+        generateNewId();
     }
 
     private void studentIdLoad() {
@@ -89,4 +93,16 @@ public class RegistrationFormController {
             throw new RuntimeException(e);
         }
     }
+
+    private void generateNewId() {
+        try {
+            String s = registrationBO.generateNewID();
+            lblId.setText(s);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 }
