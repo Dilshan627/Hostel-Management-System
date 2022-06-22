@@ -5,11 +5,14 @@ import bo.BOType;
 import bo.custom.impl.RegistrationBOImpl;
 import bo.custom.impl.RoomBOImpl;
 import bo.custom.impl.StudentBOImpl;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import dto.ReserveDTO;
 import dto.RoomDTO;
 import dto.StudentDTO;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
@@ -33,6 +36,8 @@ public class RegistrationFormController {
     public JFXTextField txtRent;
     public JFXTextField txtQty;
     public Label lblId;
+    public Label txtStatus;
+    public JFXButton btnAdd;
 
     public void initialize() {
         cmbStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -61,12 +66,24 @@ public class RegistrationFormController {
                         txtRent.setText(dto.getRent());
                         txtQty.setText(String.valueOf(dto.getQty()));
                     }
-
+                    String co = registrationBO.count(newValue);
+                    int count = Integer.parseInt(co);
+                    int qty = Integer.parseInt(txtQty.getText());
+                    if (count >= qty) {
+                        btnAdd.setDisable(true);
+                        txtStatus.setText("NOT Available");
+                    } else {
+                        txtStatus.setText("Available");
+                        btnAdd.setDisable(false);
+                    }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+
             }
         });
+
+
         studentIdLoad();
         roomIdLoad();
         generateNewId();
@@ -105,4 +122,11 @@ public class RegistrationFormController {
     }
 
 
+    public void addOnAction(ActionEvent actionEvent) {
+        try {
+            registrationBO.add(new ReserveDTO(lblId.getText(), String.valueOf(cmbDate.getValue()), cmbStudentId.getValue(), cmbRoomId.getValue(), txtStatus.getText()));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

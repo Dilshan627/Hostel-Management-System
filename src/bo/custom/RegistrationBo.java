@@ -14,4 +14,6 @@ public interface RegistrationBo extends SuperBO {
     boolean add(ReserveDTO reserveDTO) throws Exception;
 
     String generateNewID() throws IOException;
+
+    String count(String id) throws IOException;
 }

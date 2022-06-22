@@ -16,8 +16,11 @@
          </font></Label>
       <JFXComboBox fx:id="cmbStudentId" layoutX="111.0" layoutY="126.0" prefHeight="25.0" prefWidth="190.0" promptText="student Id" />
       <JFXComboBox fx:id="cmbRoomId" layoutX="365.0" layoutY="126.0" prefHeight="25.0" prefWidth="190.0" promptText="room Id" />
-      <Label layoutX="375.0" layoutY="197.0" prefHeight="25.0" prefWidth="107.0" text="room Status" />
-      <JFXButton layoutX="639.0" layoutY="557.0" prefHeight="40.0" prefWidth="128.0" text="add" />
+      <Label fx:id="txtStatus" alignment="CENTER" layoutX="321.0" layoutY="194.0" prefHeight="29.0" prefWidth="217.0" text="Available">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></Label>
+      <JFXButton fx:id="btnAdd" layoutX="639.0" layoutY="557.0" onAction="#addOnAction" prefHeight="40.0" prefWidth="128.0" text="add" />
       <JFXDatePicker fx:id="cmbDate" layoutX="599.0" layoutY="126.0" />
       <JFXTextField fx:id="txtName" editable="false" layoutX="103.0" layoutY="262.0" prefHeight="25.0" prefWidth="217.0" promptText="Name">
          <font>

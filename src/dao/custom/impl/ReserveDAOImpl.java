@@ -1,6 +1,6 @@
 package dao.custom.impl;
 
-import dao.custom.RegistrationDAO;
+import dao.custom.ReserveDAO;
 import entity.Reserve;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -9,8 +9,9 @@ import util.FactoryConfiguration;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
-public class RegistrationDAOImpl implements RegistrationDAO {
+public class ReserveDAOImpl implements ReserveDAO {
     @Override
     public ArrayList<Reserve> getAll() throws Exception {
         return null;
@@ -18,7 +19,12 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 
     @Override
     public boolean save(Reserve entity) throws Exception {
-        return false;
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(entity);
+        transaction.commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -48,4 +54,20 @@ public class RegistrationDAOImpl implements RegistrationDAO {
         session.close();
         return newID;
     }
+
+    @Override
+    public String count(String id) throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        NativeQuery sqlQuery = session.createSQLQuery("select count(room_id) from reserve where room_id= :id");
+        sqlQuery.setParameter("id", id);
+        List<String> list = sqlQuery.list();
+        String count = String.valueOf(list.listIterator().next());
+        transaction.commit();
+        session.close();
+        return count;
+
+    }
+
+
 }

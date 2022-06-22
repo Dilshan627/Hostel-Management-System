@@ -1,8 +1,10 @@
 package entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -21,7 +23,7 @@ public class Room implements SuperEntity {
     private String rent;
     private int qty;
 
-   @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room")
     private List<Reserve> list = new ArrayList();
 
     public Room(String roomId, String type, String rent, int qty) {
@@ -29,5 +31,9 @@ public class Room implements SuperEntity {
         this.type = type;
         this.rent = rent;
         this.qty = qty;
+    }
+
+    public Room(String resId) {
+        this.roomId = resId;
     }
 }

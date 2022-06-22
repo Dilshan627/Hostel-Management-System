@@ -1,13 +1,14 @@
 package entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -35,5 +36,10 @@ public class Student implements SuperEntity {
         this.contact = contact;
         this.dob = dob;
         this.gender = gender;
+    }
+
+
+    public Student(String student) {
+        this.studentId = student;
     }
 }
