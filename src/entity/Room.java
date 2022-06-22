@@ -16,10 +16,8 @@ import java.util.List;
 @Entity
 public class Room implements SuperEntity {
     @Id
-
     private String roomId;
     private String type;
-
     private String rent;
     private int qty;
 

@@ -4,8 +4,10 @@ import dao.custom.RoomDAO;
 import entity.Room;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,4 +54,14 @@ public class RoomDAOImpl implements RoomDAO {
         return true;
     }
 
+    @Override
+    public List<String> roomId() throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Query studentId = session.createQuery("SELECT roomId FROM Room");
+        List<String> list = studentId.list();
+        transaction.commit();
+        session.close();
+        return list;
+    }
 }

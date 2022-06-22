@@ -19,4 +19,6 @@ public interface StudentBO extends SuperBO {
 
     List<String> StudentId() throws IOException;
 
+    List<StudentDTO> search(String id) throws IOException;
+
 }

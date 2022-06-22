@@ -21,7 +21,6 @@ public class Student implements SuperEntity {
     private String studentId;
     private String name;
     private String address;
-
     private String contact;
     private String dob;
     private String gender;

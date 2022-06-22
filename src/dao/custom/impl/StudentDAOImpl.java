@@ -65,4 +65,16 @@ public class StudentDAOImpl implements StudentDAO {
         session.close();
         return list;
     }
+
+    @Override
+    public List<Student> search(String id) throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Query student = session.createQuery("FROM Student  WHERE studentId = :id");
+        student.setParameter("id",id);
+        List<Student> list = student.list();
+        transaction.commit();
+        session.close();
+        return list;
+    }
 }

@@ -7,7 +7,9 @@ import dao.custom.impl.RoomDAOImpl;
 import dto.RoomDTO;
 import entity.Room;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class RoomBOImpl implements RoomBO {
 
@@ -36,5 +38,10 @@ public class RoomBOImpl implements RoomBO {
     @Override
     public boolean delete(String code) throws Exception {
         return roomDAO.delete(code);
+    }
+
+    @Override
+    public List<String> roomId() throws IOException {
+        return roomDAO.roomId();
     }
 }
