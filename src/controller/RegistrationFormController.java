@@ -13,6 +13,7 @@ import dto.ReserveDTO;
 import dto.RoomDTO;
 import dto.StudentDTO;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
@@ -121,12 +122,15 @@ public class RegistrationFormController {
 
     }
 
-
     public void addOnAction(ActionEvent actionEvent) {
-        try {
-            registrationBO.add(new ReserveDTO(lblId.getText(), String.valueOf(cmbDate.getValue()), cmbStudentId.getValue(), cmbRoomId.getValue(), txtStatus.getText()));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        if (!txtName.getText().isEmpty() && !txtType.getText().isEmpty()) {
+            try {
+                registrationBO.add(new ReserveDTO(lblId.getText(), String.valueOf(cmbDate.getValue()), cmbStudentId.getValue(), cmbRoomId.getValue(), txtStatus.getText()));
+                new Alert(Alert.AlertType.CONFIRMATION, "Register").show();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
+
     }
 }
