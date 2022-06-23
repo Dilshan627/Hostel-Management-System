@@ -15,12 +15,12 @@
       </TableView>
       <JFXComboBox fx:id="cmdRoomId" layoutX="600.0" layoutY="97.0" prefHeight="25.0" prefWidth="173.0" />
       <JFXComboBox fx:id="cmdStudentId" layoutX="178.0" layoutY="97.0" prefHeight="25.0" prefWidth="190.0" />
-      <JFXTextField layoutX="105.0" layoutY="214.0" />
-      <JFXTextField layoutX="105.0" layoutY="282.0" />
-      <JFXTextField layoutX="308.0" layoutY="214.0" />
-      <JFXTextField layoutX="308.0" layoutY="282.0" />
-      <JFXTextField layoutX="106.0" layoutY="364.0" />
-      <JFXTextField layoutX="308.0" layoutY="364.0" />
-      <JFXTextField layoutX="205.0" layoutY="460.0" />
+      <JFXTextField fx:id="txtName" layoutX="67.0" layoutY="214.0" prefHeight="25.0" prefWidth="173.0" />
+      <JFXTextField fx:id="txtAddress" layoutX="67.0" layoutY="282.0" prefHeight="25.0" prefWidth="173.0" />
+      <JFXTextField fx:id="txtGender" layoutX="270.0" layoutY="214.0" prefHeight="25.0" prefWidth="173.0" />
+      <JFXTextField fx:id="txtRoomId" layoutX="270.0" layoutY="282.0" prefHeight="25.0" prefWidth="173.0" />
+      <JFXTextField fx:id="txtContact" layoutX="68.0" layoutY="364.0" prefHeight="25.0" prefWidth="173.0" />
+      <JFXTextField fx:id="txtDate" layoutX="270.0" layoutY="364.0" prefHeight="25.0" prefWidth="173.0" />
+      <JFXTextField fx:id="txtDob" layoutX="67.0" layoutY="448.0" prefHeight="25.0" prefWidth="173.0" />
    </children>
 </AnchorPane>
