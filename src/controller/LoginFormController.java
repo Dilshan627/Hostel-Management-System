@@ -38,7 +38,6 @@ public class LoginFormController {
         AccountFormController.username(text);
 
 
-
     }
 
     public void signupOnAction(ActionEvent actionEvent) {
@@ -51,7 +50,6 @@ public class LoginFormController {
 
         btnSlideSignup.setVisible(true);
         btnSlideSignIn.setVisible(true);
-
 
     }
 
@@ -68,12 +66,19 @@ public class LoginFormController {
     }
 
     public void slideSignupOnAction(ActionEvent actionEvent) {
-
-        try {
-            loginBO.save(new UserDTO(txtUserName.getText(),txtPassword.getText()));
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Invalid user name").show();
-            throw new RuntimeException(e);
+        if (!txtUserName.getText().isEmpty() && !txtPassword.getText().isEmpty()) {
+            if (txtPassword.getText().equals(txtConfirm.getText())) {
+                try {
+                    loginBO.save(new UserDTO(txtUserName.getText(), txtPassword.getText()));
+                } catch (Exception e) {
+                    new Alert(Alert.AlertType.ERROR, "Invalid user name").show();
+                    throw new RuntimeException(e);
+                }
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Invalid Data").show();
+            }
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Invalid Data").show();
         }
     }
 
