@@ -23,11 +23,11 @@ public class RegistrationBOImpl implements RegistrationBo {
 
     @Override
     public boolean add(ReserveDTO reserveDTO) throws Exception {
-        return dao.save(new Reserve(reserveDTO.getResId(),reserveDTO.getDate(),new Student(reserveDTO.getStudent()),new Room(reserveDTO.getRoom()),reserveDTO.getStudent()));
+        return dao.save(new Reserve(reserveDTO.getResId(), reserveDTO.getDate(), new Student(reserveDTO.getStudent()), new Room(reserveDTO.getRoom()), reserveDTO.getStudent()));
     }
 
     @Override
-    public String generateNewID() throws IOException{
+    public String generateNewID() throws IOException {
         return dao.generateNewID();
     }
 
@@ -35,4 +35,5 @@ public class RegistrationBOImpl implements RegistrationBo {
     public String count(String id) throws IOException {
         return dao.count(id);
     }
+
 }

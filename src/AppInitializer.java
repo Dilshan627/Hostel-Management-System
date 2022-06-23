@@ -2,8 +2,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+import util.FactoryConfiguration;
 
 import java.io.IOException;
+import java.util.List;
 
 public class AppInitializer extends Application {
 

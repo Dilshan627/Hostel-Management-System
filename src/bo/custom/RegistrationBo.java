@@ -4,7 +4,6 @@ import bo.SuperBO;
 import dto.ReserveDTO;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface RegistrationBo extends SuperBO {
@@ -16,4 +15,5 @@ public interface RegistrationBo extends SuperBO {
     String generateNewID() throws IOException;
 
     String count(String id) throws IOException;
+
 }

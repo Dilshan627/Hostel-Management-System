@@ -5,8 +5,10 @@ import entity.Reserve;
 
 import java.io.IOException;
 
-public interface ReserveDAO extends CrudDAO<Reserve,String> {
+public interface ReserveDAO extends CrudDAO<Reserve, String> {
     String generateNewID() throws IOException;
 
     String count(String id) throws IOException;
+
+
 }

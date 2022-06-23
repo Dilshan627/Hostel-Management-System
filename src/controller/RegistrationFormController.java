@@ -131,6 +131,7 @@ public class RegistrationFormController {
                 throw new RuntimeException(e);
             }
         }
-
+        generateNewId();
+        studentIdLoad();
     }
 }

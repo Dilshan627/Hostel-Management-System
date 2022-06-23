@@ -8,7 +8,5 @@ import java.util.List;
 
 public interface StudentDAO extends CrudDAO<Student, String> {
 
-    List<String> StudentId() throws IOException;
-
     List<Student> search(String id) throws IOException;
 }

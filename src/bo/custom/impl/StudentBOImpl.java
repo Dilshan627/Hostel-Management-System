@@ -3,6 +3,7 @@ package bo.custom.impl;
 import bo.custom.StudentBO;
 import dao.DAOFactory;
 import dao.DAOType;
+import dao.custom.impl.QueryDAOImpl;
 import dao.custom.impl.StudentDAOImpl;
 import dto.StudentDTO;
 import entity.Student;
@@ -14,6 +15,7 @@ import java.util.List;
 public class StudentBOImpl implements StudentBO {
 
     private final StudentDAOImpl studentDAO = DAOFactory.getInstance().getDAO(DAOType.STUDENT);
+    private final QueryDAOImpl queryDAO=DAOFactory.getInstance().getDAO(DAOType.QUERY);
 
     @Override
     public ArrayList<StudentDTO> getAll() throws Exception {
@@ -44,14 +46,14 @@ public class StudentBOImpl implements StudentBO {
 
     @Override
     public List<String> StudentId() throws IOException {
-        return studentDAO.StudentId();
+        return queryDAO.StudentId();
     }
 
     @Override
     public List<StudentDTO> search(String id) throws IOException {
         List<Student> list = studentDAO.search(id);
-        List<StudentDTO>studentDTO=new ArrayList<>();
-        for (Student student:list) {
+        List<StudentDTO> studentDTO = new ArrayList<>();
+        for (Student student : list) {
             studentDTO.add(new StudentDTO(student.getStudentId(), student.getName(), student.getAddress(), student.getContact(), student.getDob(), student.getGender()));
         }
         return studentDTO;

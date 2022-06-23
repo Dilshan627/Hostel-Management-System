@@ -4,6 +4,7 @@ import dao.custom.StudentDAO;
 import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
@@ -56,22 +57,11 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public List<String> StudentId() throws IOException {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        Query studentId = session.createQuery("SELECT studentId FROM Student");
-        List<String> list = studentId.list();
-        transaction.commit();
-        session.close();
-        return list;
-    }
-
-    @Override
     public List<Student> search(String id) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         Query student = session.createQuery("FROM Student  WHERE studentId = :id");
-        student.setParameter("id",id);
+        student.setParameter("id", id);
         List<Student> list = student.list();
         transaction.commit();
         session.close();
