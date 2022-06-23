@@ -2,9 +2,12 @@ package dao.custom.impl;
 
 import dao.custom.ReserveDAO;
 import entity.Reserve;
+import entity.Room;
+import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
+import org.hibernate.query.Query;
 import util.FactoryConfiguration;
 
 import java.io.IOException;
@@ -67,6 +70,29 @@ public class ReserveDAOImpl implements ReserveDAO {
         session.close();
         return count;
 
+    }
+
+    @Override
+    public List<String> StudentId() throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        NativeQuery listId = session.createSQLQuery("select student_id from Reserve");
+        List list = listId.list();
+        transaction.commit();
+        session.close();
+        return list;
+    }
+
+    @Override
+    public List<String> search(String id) throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        NativeQuery sqlQuery = session.createSQLQuery("select student_id from reserve where room_id= :id");
+        sqlQuery.setParameter("id", id);
+        List list = sqlQuery.list();
+        transaction.commit();
+        session.close();
+        return list;
     }
 
 }

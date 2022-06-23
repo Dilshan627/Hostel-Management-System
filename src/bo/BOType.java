@@ -1,5 +1,5 @@
 package bo;
 
 public enum BOType {
-    Student,ROOM,RESERVE
+    Student,ROOM,RESERVE,DETAILS
 }

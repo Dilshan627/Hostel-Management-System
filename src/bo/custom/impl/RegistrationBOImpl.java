@@ -23,7 +23,7 @@ public class RegistrationBOImpl implements RegistrationBo {
 
     @Override
     public boolean add(ReserveDTO reserveDTO) throws Exception {
-        return dao.save(new Reserve(reserveDTO.getResId(), reserveDTO.getDate(), new Student(reserveDTO.getStudent()), new Room(reserveDTO.getRoom()), reserveDTO.getStudent()));
+        return dao.save(new Reserve(reserveDTO.getResId(), reserveDTO.getDate(), new Student(reserveDTO.getStudent()), new Room(reserveDTO.getRoom()), reserveDTO.getStatus()));
     }
 
     @Override
