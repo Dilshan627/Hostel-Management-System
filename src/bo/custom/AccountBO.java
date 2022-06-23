@@ -8,5 +8,11 @@ import java.util.List;
 
 public interface AccountBO extends SuperBO {
 
+    boolean save(UserDTO dto) throws Exception;
+
     List<UserDTO> search(String id) throws IOException;
+
+    boolean update(UserDTO dto) throws Exception;
+
+    boolean delete(String code) throws Exception;
 }

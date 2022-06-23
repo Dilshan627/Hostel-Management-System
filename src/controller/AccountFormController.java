@@ -10,6 +10,7 @@ import dao.DAOFactory;
 import dao.DAOType;
 import dto.UserDTO;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,6 +22,8 @@ public class AccountFormController {
 
     private final AccountBOImpl accountBO = BOFactory.getInstance().getBO(BOType.ACCOUNT);
     static String userName;
+    public String loadUser;
+
     public void initialize() {
 
         txtUserName.setEditable(false);
@@ -32,7 +35,8 @@ public class AccountFormController {
     private void loadDate() {
         try {
             List<UserDTO> list = accountBO.search(userName);
-            for (UserDTO dto:list) {
+            for (UserDTO dto : list) {
+                loadUser = dto.getUserName();
                 txtUserName.setText(dto.getUserName());
                 txtPassword.setText(dto.getPassword());
             }
@@ -53,6 +57,22 @@ public class AccountFormController {
         txtUserName.setEditable(false);
         txtPassword.setEditable(false);
         txtConfirmPassword.setEditable(false);
+
+
+        if (!txtUserName.getText().isEmpty() && !txtPassword.getText().isEmpty()) {
+            if (txtPassword.getText().equals(txtConfirmPassword.getText())) {
+                try {
+                    accountBO.delete(loadUser);
+                    accountBO.save(new UserDTO(txtUserName.getText(), txtPassword.getText()));
+                } catch (Exception e) {
+                    new Alert(Alert.AlertType.ERROR, "Invalid user name").show();
+                    throw new RuntimeException(e);
+                }
+
+            } else new Alert(Alert.AlertType.ERROR, "Invalid Data").show();
+
+        } else new Alert(Alert.AlertType.ERROR, "Invalid Data").show();
+
     }
 
 
