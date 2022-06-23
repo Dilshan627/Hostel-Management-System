@@ -3,12 +3,11 @@ package bo.custom.impl;
 import bo.custom.DetailsBO;
 import dao.DAOFactory;
 import dao.DAOType;
-import dao.custom.impl.QueryDAOImpl;
 import dao.custom.impl.ReserveDAOImpl;
 import dao.custom.impl.RoomDAOImpl;
-import dto.CustomDTO;
+import dao.custom.impl.StudentDAOImpl;
 import dto.StudentDTO;
-import entity.Custom;
+import entity.Student;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class DetailsBOImpl implements DetailsBO {
     private final RoomDAOImpl roomDAO = DAOFactory.getInstance().getDAO(DAOType.ROOM);
     private final ReserveDAOImpl reserveDAO = DAOFactory.getInstance().getDAO(DAOType.RESERVE);
 
-    private final QueryDAOImpl queryDAO=DAOFactory.getInstance().getDAO(DAOType.QUERY);
+    private final StudentDAOImpl studentDAO = DAOFactory.getInstance().getDAO(DAOType.STUDENT);
 
     @Override
     public List<String> roomId() throws IOException {
@@ -37,13 +36,13 @@ public class DetailsBOImpl implements DetailsBO {
     }
 
     @Override
-    public List<CustomDTO> studentDetails(String Id) throws IOException {
-        List<Custom> customs = queryDAO.studentDetails(Id);
-        List<CustomDTO> list = new ArrayList<>();
-        for (Custom custom:customs) {
-            list.add(new CustomDTO(custom.getName(),custom.getAddress(),custom.getContact(),custom.getDob(),custom.getGender(),custom.getRooId(),custom.getDate()));
+    public List<StudentDTO> searchStudent(String id) throws IOException {
+        List<Student> list = studentDAO.search(id);
+        List<StudentDTO> studentDTO = new ArrayList<>();
+        for (Student student : list) {
+            studentDTO.add(new StudentDTO(student.getStudentId(), student.getName(), student.getAddress(), student.getContact(), student.getDob(), student.getGender()));
         }
-        return list;
+        return studentDTO;
     }
 
 }

@@ -5,7 +5,7 @@ import bo.BOType;
 import bo.custom.impl.DetailsBOImpl;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import dto.CustomDTO;
+import dto.StudentDTO;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import view.tm.DetailsTm;
@@ -21,9 +21,7 @@ public class DetailsFormController {
     public JFXTextField txtName;
     public JFXTextField txtAddress;
     public JFXTextField txtGender;
-    public JFXTextField txtRoomId;
     public JFXTextField txtContact;
-    public JFXTextField txtDate;
     public JFXTextField txtDob;
 
     public void initialize() {
@@ -32,7 +30,7 @@ public class DetailsFormController {
             if (newValue != null) {
                 tblData.getItems().clear();
                 try {
-                    List<String> list = detailsBO.roomId();
+                    List<String> list = detailsBO.search(newValue);
                     for (String Id : list) {
                         tblData.getItems().add(new DetailsTm(Id));
                     }
@@ -44,16 +42,15 @@ public class DetailsFormController {
 
         cmdStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
+
                 try {
-                    List<CustomDTO> list = detailsBO.studentDetails(newValue);
-                    for (CustomDTO dto:list) {
+                    List<StudentDTO> studentDTO = detailsBO.searchStudent(newValue);
+                    for (StudentDTO dto : studentDTO) {
                         txtName.setText(dto.getName());
                         txtAddress.setText(dto.getAddress());
                         txtContact.setText(dto.getContact());
                         txtDob.setText(dto.getDob());
                         txtGender.setText(dto.getGender());
-                        txtRoomId.setText(dto.getRooId());
-                        txtDate.setText(dto.getDate());
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);

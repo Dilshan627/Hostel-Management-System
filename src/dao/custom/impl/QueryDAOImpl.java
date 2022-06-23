@@ -1,7 +1,6 @@
 package dao.custom.impl;
 
 import dao.custom.QueryDAO;
-import entity.Custom;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
@@ -25,15 +24,4 @@ public class QueryDAOImpl implements QueryDAO {
         return list;
     }
 
-    @Override
-    public List<Custom> studentDetails(String Id) throws IOException {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-        NativeQuery sqlQuery = session.createSQLQuery("SELECT name,address, contact, dob, gender,o.room_id,o.date FROM student p INNER JOIN reserve o ON p.studentId = o.student_id WHERE p.studentId = :Id");
-        sqlQuery.setParameter("Id", Id);
-        List list = sqlQuery.list();
-        transaction.commit();
-        session.close();
-        return list;
-    }
 }

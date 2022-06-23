@@ -42,4 +42,5 @@ public class Student implements SuperEntity {
     public Student(String student) {
         this.studentId = student;
     }
+
 }
