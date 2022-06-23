@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import dto.StudentDTO;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import view.tm.StudentTm;
@@ -76,11 +77,34 @@ public class StudentFormController {
     public void addOnAction(ActionEvent actionEvent) {
         if (!txtName.getText().isEmpty() && !txtAddress.getText().isEmpty() && !txtContact.getText().isEmpty() && !cmdGender.getValue().isEmpty()) {
             String code = txtId.getText();
+            String name = txtName.getText();
+            String address = txtAddress.getText();
+            String contact = txtContact.getText();
             String dob = String.valueOf(txtDob.getValue());
+
+            if (!name.matches("^[A-Za-z]+$")) {
+                new Alert(Alert.AlertType.ERROR, "Invalid").show();
+                txtName.requestFocus();
+                return;
+            } else if (!address.matches("^[A-Za-z]+$")) {
+                new Alert(Alert.AlertType.ERROR, "Invalid").show();
+                txtAddress.requestFocus();
+                return;
+            } else if (!contact.matches("^(?:7|0|(?:\\+94))[0-9]{9}$")) {
+                new Alert(Alert.AlertType.ERROR, "Invalid").show();
+                txtContact.requestFocus();
+                return;
+            } else if (!code.matches("^S00-[0-9]{4}$")) {
+                new Alert(Alert.AlertType.ERROR, "Invalid").show();
+                txtContact.requestFocus();
+                return;
+            }
+
+
             if (btnAdd.getText().equalsIgnoreCase("Add")) {
                 try {
                     studentBO.add(new StudentDTO(txtId.getText(), txtName.getText(), txtAddress.getText(), txtContact.getText(), String.valueOf(txtDob.getValue()), cmdGender.getValue()));
-
+                    new Alert(Alert.AlertType.CONFIRMATION, "Add student").show();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -88,7 +112,7 @@ public class StudentFormController {
             } else {
                 try {
                     studentBO.update(new StudentDTO(txtId.getText(), txtName.getText(), txtAddress.getText(), txtContact.getText(), dob, cmdGender.getValue()));
-
+                    new Alert(Alert.AlertType.CONFIRMATION, "update student").show();
                     StudentTm selectedStudent = tblStudent.getSelectionModel().getSelectedItem();
                     selectedStudent.setStudentId(txtId.getText());
                     selectedStudent.setName(txtName.getText());
@@ -126,6 +150,7 @@ public class StudentFormController {
 
             try {
                 studentBO.delete(code);
+                new Alert(Alert.AlertType.CONFIRMATION, "delete student").show();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

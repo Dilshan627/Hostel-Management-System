@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dto.RoomDTO;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import view.tm.RoomTM;
@@ -62,15 +63,37 @@ public class RoomFormController {
     public void addOnAction(ActionEvent actionEvent) {
         if (!txtPrice.getText().isEmpty() && !txtQty.getText().isEmpty() && !txtType.getValue().isEmpty()) {
             int qty = Integer.parseInt(txtQty.getText());
+            String id = txtId.getText();
+            String price = txtPrice.getText();
+            String qtt = txtQty.getText();
+
+
+            if (!id.matches("^RM-[0-9]{4}$")) {
+                new Alert(Alert.AlertType.ERROR, "Invalid").show();
+                txtId.requestFocus();
+                return;
+            } else if (!price.matches("^[0-9]{1,}.00$")) {
+                new Alert(Alert.AlertType.ERROR, "Invalid").show();
+                txtPrice.requestFocus();
+                return;
+            } else if (!qtt.matches("^[0-9]{1,}$")) {
+                new Alert(Alert.AlertType.ERROR, "Invalid").show();
+                txtQty.requestFocus();
+                return;
+            }
+
+
             if (btnAdd.getText().equalsIgnoreCase("Add")) {
                 try {
                     roomBO.add(new RoomDTO(txtId.getText(), txtType.getValue(), txtPrice.getText(), qty));
+                    new Alert(Alert.AlertType.CONFIRMATION, "Add room").show();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             } else {
                 try {
                     roomBO.update(new RoomDTO(txtId.getText(), txtType.getValue(), txtPrice.getText(), qty));
+                    new Alert(Alert.AlertType.CONFIRMATION, "update room").show();
                     RoomTM selectedRoom = tblRoom.getSelectionModel().getSelectedItem();
                     selectedRoom.setRoomId(txtId.getText());
                     selectedRoom.setType(txtType.getValue());
@@ -104,6 +127,7 @@ public class RoomFormController {
             String code = txtId.getText();
             try {
                 roomBO.delete(code);
+                new Alert(Alert.AlertType.CONFIRMATION, "delete room").show();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
