@@ -16,7 +16,7 @@
                 <Font name="System Bold" size="30.0" />
             </font>
         </Label>
-        <JFXTextField labelFloat="true" layoutX="557.0" layoutY="277.0" prefHeight="25.0" prefWidth="281.0" promptText="User name">
+        <JFXTextField fx:id="txtUserName" labelFloat="true" layoutX="557.0" layoutY="277.0" prefHeight="25.0" prefWidth="281.0" promptText="User name">
             <font>
                 <Font size="14.0" />
             </font>

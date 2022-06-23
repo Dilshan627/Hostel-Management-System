@@ -1,9 +1,6 @@
 package dao;
 
-import dao.custom.impl.QueryDAOImpl;
-import dao.custom.impl.ReserveDAOImpl;
-import dao.custom.impl.RoomDAOImpl;
-import dao.custom.impl.StudentDAOImpl;
+import dao.custom.impl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -25,6 +22,8 @@ public class DAOFactory {
                 return (T) new ReserveDAOImpl();
             case QUERY:
                 return (T) new QueryDAOImpl();
+            case USER:
+                return (T) new UserDAOImpl();
             default:
                 return null;
         }

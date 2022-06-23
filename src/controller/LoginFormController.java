@@ -1,9 +1,14 @@
 package controller;
 
+import bo.BOFactory;
+import bo.BOType;
+import bo.custom.impl.LoginBOImpl;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import dto.UserDTO;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
@@ -22,9 +27,17 @@ public class LoginFormController {
     public JFXPasswordField txtPassword;
     public JFXButton btnHide;
     public JFXButton btnShow;
+    public JFXTextField txtUserName;
+
+    private final LoginBOImpl loginBO = BOFactory.getInstance().getBO(BOType.LOGIN);
 
     public void signOnAction(ActionEvent actionEvent) throws IOException {
+
         util.navigation.navigate(context, "dashboard");
+        String text = txtUserName.getText();
+        AccountFormController.username(text);
+
+
 
     }
 
@@ -55,6 +68,13 @@ public class LoginFormController {
     }
 
     public void slideSignupOnAction(ActionEvent actionEvent) {
+
+        try {
+            loginBO.save(new UserDTO(txtUserName.getText(),txtPassword.getText()));
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, "Invalid user name").show();
+            throw new RuntimeException(e);
+        }
     }
 
     public void passwordShowOnAction(ActionEvent actionEvent) {

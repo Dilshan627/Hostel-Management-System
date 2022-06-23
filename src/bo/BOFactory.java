@@ -1,9 +1,6 @@
 package bo;
 
-import bo.custom.impl.DetailsBOImpl;
-import bo.custom.impl.RegistrationBOImpl;
-import bo.custom.impl.RoomBOImpl;
-import bo.custom.impl.StudentBOImpl;
+import bo.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -25,6 +22,10 @@ public class BOFactory {
                 return (T) new RegistrationBOImpl();
             case DETAILS:
                 return (T) new DetailsBOImpl();
+            case LOGIN:
+                return (T) new LoginBOImpl();
+            case ACCOUNT:
+                return (T) new AccountBOImpl();
             default:
                 return null;
         }
