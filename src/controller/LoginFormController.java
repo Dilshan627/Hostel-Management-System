@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class LoginFormController {
+
     public AnchorPane context;
     public Label lblLogin;
     public Label lblAccount;
@@ -32,12 +33,18 @@ public class LoginFormController {
     private final LoginBOImpl loginBO = BOFactory.getInstance().getBO(BOType.LOGIN);
 
     public void signOnAction(ActionEvent actionEvent) throws IOException {
+        String userName = txtUserName.getText();
+        String password=txtPassword.getText();
+        AccountFormController.username(userName);
 
-        util.navigation.navigate(context, "dashboard");
-        String text = txtUserName.getText();
-        AccountFormController.username(text);
-
-
+        if (!userName.isEmpty()&&!password.isEmpty()){
+            boolean login = loginBO.login(userName, password);
+            if (login){
+                util.navigation.navigate(context, "dashboard");
+            }else
+                new Alert(Alert.AlertType.ERROR, "Invalid").show();
+        }else
+            new Alert(Alert.AlertType.ERROR, "Invalid").show();
     }
 
     public void signupOnAction(ActionEvent actionEvent) {
@@ -50,7 +57,6 @@ public class LoginFormController {
 
         btnSlideSignup.setVisible(true);
         btnSlideSignIn.setVisible(true);
-
     }
 
     public void slideSignOnAction(ActionEvent actionEvent) {
@@ -77,7 +83,7 @@ public class LoginFormController {
             } else {
                 new Alert(Alert.AlertType.ERROR, "Invalid Data").show();
             }
-        }else {
+        } else {
             new Alert(Alert.AlertType.ERROR, "Invalid Data").show();
         }
     }

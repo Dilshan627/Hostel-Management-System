@@ -75,9 +75,7 @@ public class AccountFormController {
 
     }
 
-
     public static void username(String id) {
         userName = id;
-        System.out.println(id);
     }
 }

@@ -61,5 +61,24 @@ public class UserDAOImpl implements UserDAO {
         return list;
     }
 
-
+    @Override
+    public boolean login(String username, String password) throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("SELECT password FROM User WHERE userName LIKE :username");
+        query.setParameter("username", "%" + username + "%");
+        List<String> list = query.list();
+        transaction.commit();
+        session.close();
+        if (list.isEmpty()) {
+            return false;
+        }
+        for (String user : list) {
+            if (password.equals(user)) {
+                return true;
+            } else
+            return false;
+        }
+        return false;
+    }
 }

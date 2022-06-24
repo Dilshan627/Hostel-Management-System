@@ -11,4 +11,7 @@ import java.util.List;
 public interface UserDAO extends CrudDAO<User,String> {
 
     List<User> search(String id) throws IOException;
+
+    boolean login(String username,String password)throws IOException;
+
 }

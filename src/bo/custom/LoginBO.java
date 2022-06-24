@@ -12,5 +12,5 @@ public interface LoginBO extends SuperBO {
 
     boolean save(UserDTO dto) throws Exception;
 
-
+    boolean login(String username,String password)throws IOException;
 }
