@@ -140,7 +140,7 @@ public class StudentFormController {
         txtDob.getEditor().clear();
         btnAdd.setText("Add");
         cmdGender.setValue("");
-        txtName.requestFocus();
+        txtId.requestFocus();
         tblStudent.getSelectionModel().clearSelection();
     }
 

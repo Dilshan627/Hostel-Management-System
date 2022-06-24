@@ -34,16 +34,16 @@ public class LoginFormController {
 
     public void signOnAction(ActionEvent actionEvent) throws IOException {
         String userName = txtUserName.getText();
-        String password=txtPassword.getText();
+        String password = txtPassword.getText();
         AccountFormController.username(userName);
 
-        if (!userName.isEmpty()&&!password.isEmpty()){
+        if (!userName.isEmpty() && !password.isEmpty()) {
             boolean login = loginBO.login(userName, password);
-            if (login){
+            if (login) {
                 util.navigation.navigate(context, "dashboard");
-            }else
+            } else
                 new Alert(Alert.AlertType.ERROR, "Invalid").show();
-        }else
+        } else
             new Alert(Alert.AlertType.ERROR, "Invalid").show();
     }
 

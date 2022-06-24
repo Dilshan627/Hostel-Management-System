@@ -118,7 +118,7 @@ public class RoomFormController {
         txtQty.clear();
         txtType.setValue("");
         btnAdd.setText("Add");
-        txtType.requestFocus();
+        txtId.requestFocus();
         tblRoom.getSelectionModel().clearSelection();
     }
 

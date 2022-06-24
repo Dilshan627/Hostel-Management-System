@@ -4,14 +4,16 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.Optional;
 
 public class DashboardFormController {
     public AnchorPane context;
@@ -46,7 +48,11 @@ public class DashboardFormController {
     }
 
     public void logoutOnAction(ActionEvent actionEvent) throws IOException {
-        util.navigation.navigate(context, "login");
+        Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Are You Sure?", ButtonType.YES,ButtonType.NO);
+        Optional<ButtonType> buttonType = alert.showAndWait();
+        if (buttonType.get().equals(ButtonType.YES)) {
+            util.navigation.navigate(context, "login");
+        }
     }
 
     public void accountOnAction(ActionEvent actionEvent) throws IOException {
