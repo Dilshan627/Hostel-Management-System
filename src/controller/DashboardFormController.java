@@ -1,5 +1,8 @@
 package controller;
 
+import bo.BOFactory;
+import bo.BOType;
+import bo.custom.impl.DashboardBoImpl;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -9,6 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
@@ -20,6 +24,10 @@ public class DashboardFormController {
     public AnchorPane slideContext;
     public Label lblTime;
     public Label lblDate;
+    public Label lblStudent;
+    public Label lblRegister;
+
+    private final DashboardBoImpl dashboardBo = BOFactory.getInstance().getBO(BOType.DASHBOARD);
 
     public void initialize() {
         lblDate.setText(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
@@ -33,6 +41,15 @@ public class DashboardFormController {
         );
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
+
+        try {
+            String s = dashboardBo.allCount();
+            String s1 = dashboardBo.allRegCount();
+            lblStudent.setText(s);
+            lblRegister.setText(s1);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void homeOnAction(ActionEvent actionEvent) throws IOException {
@@ -48,7 +65,7 @@ public class DashboardFormController {
     }
 
     public void logoutOnAction(ActionEvent actionEvent) throws IOException {
-        Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Are You Sure?", ButtonType.YES,ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are You Sure?", ButtonType.YES, ButtonType.NO);
         Optional<ButtonType> buttonType = alert.showAndWait();
         if (buttonType.get().equals(ButtonType.YES)) {
             util.navigation.navigate(context, "login");

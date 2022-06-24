@@ -67,4 +67,16 @@ public class StudentDAOImpl implements StudentDAO {
         session.close();
         return list;
     }
+
+    @Override
+    public String allCount() throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("SELECT count(studentId) from Student");
+        List list = query.list();
+        String count = String.valueOf(list.listIterator().next());
+        transaction.commit();
+        session.close();
+        return count;
+    }
 }

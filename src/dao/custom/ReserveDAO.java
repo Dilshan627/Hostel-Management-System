@@ -17,5 +17,5 @@ public interface ReserveDAO extends CrudDAO<Reserve, String> {
 
     List<String> search(String id) throws IOException;
 
-
+    String allCount() throws IOException;
 }

@@ -26,6 +26,8 @@ public class BOFactory {
                 return (T) new LoginBOImpl();
             case ACCOUNT:
                 return (T) new AccountBOImpl();
+            case DASHBOARD:
+                return (T) new DashboardBoImpl();
             default:
                 return null;
         }

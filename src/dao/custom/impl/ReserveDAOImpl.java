@@ -95,5 +95,17 @@ public class ReserveDAOImpl implements ReserveDAO {
         return list;
     }
 
+    @Override
+    public String allCount() throws IOException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("SELECT count(resId) from Reserve");
+        List list = query.list();
+        String count = String.valueOf(list.listIterator().next());
+        transaction.commit();
+        session.close();
+        return count;
+    }
+
 
 }
