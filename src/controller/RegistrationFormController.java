@@ -127,6 +127,7 @@ public class RegistrationFormController {
             try {
                 registrationBO.add(new ReserveDTO(lblId.getText(), String.valueOf(cmbDate.getValue()), cmbStudentId.getValue(), cmbRoomId.getValue(), txtStatus.getText()));
                 new Alert(Alert.AlertType.CONFIRMATION, "Register").show();
+                clear();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -134,4 +135,20 @@ public class RegistrationFormController {
         generateNewId();
         studentIdLoad();
     }
+
+    private void clear() {
+        lblId.setText("");
+        cmbStudentId.getItems().clear();
+        cmbRoomId.getItems().clear();
+        txtStatus.setText("");
+        txtName.clear();
+        txtAddress.clear();
+        txtContact.clear();
+        txtDob.clear();
+        txtGender.clear();
+        txtType.clear();
+        txtRent.clear();
+        txtQty.clear();
+    }
+
 }

@@ -96,7 +96,7 @@ public class StudentFormController {
                 return;
             } else if (!code.matches("^S00-[0-9]{4}$")) {
                 new Alert(Alert.AlertType.ERROR, "Invalid").show();
-                txtContact.requestFocus();
+                txtId.requestFocus();
                 return;
             }
 

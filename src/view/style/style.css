@@ -87,8 +87,19 @@
 }
 
 
+.lb{
+    -fx-border-color: #000000;
+    -fx-background-color: #9ae1df;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
 
 
+
+.shep{
+    -fx-background-color:  #c2e1df;
+    -fx-shape : "M76,249 l26,-122 l37,91 l34,-123 l28,133 l34,-93 l35,94 l40,-117 l43,119 l42,-118 l32,113 l0,25 l-353,0";
+}
 
 
 
