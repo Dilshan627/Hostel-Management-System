@@ -57,6 +57,8 @@ public class LoginFormController {
 
         btnSlideSignup.setVisible(true);
         btnSlideSignIn.setVisible(true);
+
+        txtUserName.requestFocus();
     }
 
     public void slideSignOnAction(ActionEvent actionEvent) {
@@ -69,6 +71,8 @@ public class LoginFormController {
 
         btnSlideSignup.setVisible(false);
         btnSlideSignIn.setVisible(false);
+
+        txtUserName.requestFocus();
     }
 
     public void slideSignupOnAction(ActionEvent actionEvent) {

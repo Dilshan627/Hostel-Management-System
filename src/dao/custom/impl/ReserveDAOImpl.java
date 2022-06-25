@@ -2,8 +2,6 @@ package dao.custom.impl;
 
 import dao.custom.ReserveDAO;
 import entity.Reserve;
-import entity.Room;
-import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;

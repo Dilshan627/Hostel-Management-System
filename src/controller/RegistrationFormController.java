@@ -149,6 +149,7 @@ public class RegistrationFormController {
         txtType.clear();
         txtRent.clear();
         txtQty.clear();
+        cmbDate.getEditor().clear();
     }
 
 }
