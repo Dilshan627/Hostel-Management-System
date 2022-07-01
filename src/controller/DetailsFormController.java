@@ -3,9 +3,6 @@ package controller;
 import bo.BOFactory;
 import bo.BOType;
 import bo.custom.impl.DetailsBOImpl;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextField;
-import dto.StudentDTO;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import view.tm.DetailsTm;
@@ -14,70 +11,30 @@ import java.io.IOException;
 import java.util.List;
 
 public class DetailsFormController {
-    public JFXComboBox<String> cmdRoomId;
-    public JFXComboBox<String> cmdStudentId;
+
+
+    public TableView<DetailsTm> tblDetails;
     private final DetailsBOImpl detailsBO = BOFactory.getInstance().getBO(BOType.DETAILS);
-    public TableView<DetailsTm> tblData;
-    public JFXTextField txtName;
-    public JFXTextField txtAddress;
-    public JFXTextField txtGender;
-    public JFXTextField txtContact;
-    public JFXTextField txtDob;
 
     public void initialize() {
-        tblData.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("studentId"));
-        cmdRoomId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                tblData.getItems().clear();
-                try {
-                    List<String> list = detailsBO.search(newValue);
-                    for (String Id : list) {
-                        tblData.getItems().add(new DetailsTm(Id));
-                    }
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
+        tblDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("name"));
+        tblDetails.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("address"));
+        tblDetails.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("contact"));
+        tblDetails.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("gender"));
+        tblDetails.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("roomId"));
+        tblDetails.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("date"));
+        tblDetails.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        cmdStudentId.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-
-                try {
-                    List<StudentDTO> studentDTO = detailsBO.searchStudent(newValue);
-                    for (StudentDTO dto : studentDTO) {
-                        txtName.setText(dto.getName());
-                        txtAddress.setText(dto.getAddress());
-                        txtContact.setText(dto.getContact());
-                        txtDob.setText(dto.getDob());
-                        txtGender.setText(dto.getGender());
-                    }
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
-
-        roomIdLoad();
-        studentIdLoad();
+        loadAll();
     }
 
-    private void roomIdLoad() {
+    private void loadAll() {
+        tblDetails.getItems().clear();
         try {
-            List<String> list = detailsBO.roomId();
-            for (String Id : list) {
-                cmdRoomId.getItems().add(Id);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void studentIdLoad() {
-        try {
-            List<String> list = detailsBO.StudentId();
-            for (String Id : list) {
-                cmdStudentId.getItems().add(Id);
+            List<Object[]> details = detailsBO.details();
+            for (Object[] objects : details) {
+                tblDetails.getItems().add(new DetailsTm(objects[0], objects[1], objects[2], objects[3], objects[4], objects[5], objects[6]));
+                System.out.println();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

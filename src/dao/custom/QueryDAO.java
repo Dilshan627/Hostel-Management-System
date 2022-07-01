@@ -9,4 +9,6 @@ public interface QueryDAO extends SuperDAO {
 
     List<String> StudentId() throws IOException;
 
+    List<Object[]> details() throws IOException;
+
 }

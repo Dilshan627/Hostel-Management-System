@@ -1,40 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="677.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DetailsFormController">
+<AnchorPane prefHeight="677.0" prefWidth="846.0" styleClass="pane" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DetailsFormController">
    <children>
-      <TableView fx:id="tblData" layoutX="582.0" layoutY="183.0" prefHeight="379.0" prefWidth="173.0">
+      <TableView fx:id="tblDetails" layoutX="13.0" layoutY="210.0" prefHeight="437.0" prefWidth="828.0">
         <columns>
-          <TableColumn prefWidth="168.0" text="Student Id" />
+          <TableColumn prefWidth="75.0" text="Name" />
+          <TableColumn prefWidth="108.0" text="Address" />
+            <TableColumn prefWidth="151.0" text="contact" />
+            <TableColumn prefWidth="109.0" text="gender" />
+            <TableColumn prefWidth="130.0" text="roomId" />
+            <TableColumn prefWidth="136.0" text="date" />
+            <TableColumn prefWidth="115.0" text="status" />
         </columns>
       </TableView>
-      <JFXComboBox fx:id="cmdRoomId" layoutX="582.0" layoutY="97.0" prefHeight="25.0" prefWidth="173.0" promptText="room id" />
-      <JFXComboBox fx:id="cmdStudentId" layoutX="213.0" layoutY="97.0" prefHeight="25.0" prefWidth="190.0" promptText="student Id" />
-      <JFXTextField fx:id="txtName" alignment="CENTER" editable="false" layoutX="116.0" layoutY="242.0" prefHeight="25.0" prefWidth="173.0" promptText="Name">
-         <font>
-            <Font size="13.0" />
-         </font></JFXTextField>
-      <JFXTextField fx:id="txtAddress" alignment="CENTER" editable="false" layoutX="116.0" layoutY="310.0" prefHeight="25.0" prefWidth="173.0" promptText="Address">
-         <font>
-            <Font size="13.0" />
-         </font></JFXTextField>
-      <JFXTextField fx:id="txtGender" alignment="CENTER" editable="false" layoutX="319.0" layoutY="242.0" prefHeight="25.0" prefWidth="173.0" promptText="Gender">
-         <font>
-            <Font size="13.0" />
-         </font></JFXTextField>
-      <JFXTextField fx:id="txtDob" alignment="CENTER" editable="false" layoutX="319.0" layoutY="310.0" prefHeight="25.0" prefWidth="173.0" promptText="Dob">
-         <font>
-            <Font size="13.0" />
-         </font></JFXTextField>
-      <JFXTextField fx:id="txtContact" alignment="CENTER" editable="false" layoutX="117.0" layoutY="386.0" prefHeight="25.0" prefWidth="173.0" promptText="Contact">
-         <font>
-            <Font size="13.0" />
-         </font></JFXTextField>
    </children>
 </AnchorPane>

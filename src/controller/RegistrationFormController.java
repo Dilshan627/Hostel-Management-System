@@ -139,7 +139,7 @@ public class RegistrationFormController {
     private void clear() {
         lblId.setText("");
         cmbStudentId.getItems().clear();
-        cmbRoomId.getItems().clear();
+        cmbRoomId.setValue("");
         txtStatus.setText("");
         txtName.clear();
         txtAddress.clear();

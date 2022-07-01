@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="677.0" prefWidth="846.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountFormController">
+<AnchorPane prefHeight="677.0" prefWidth="846.0" styleClass="pane" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountFormController">
    <children>
       <JFXTextField fx:id="txtUserName" layoutX="293.0" layoutY="265.0" prefHeight="25.0" prefWidth="264.0" promptText="user name" />
       <JFXButton layoutX="495.0" layoutY="225.0" onAction="#btnEditOnAction" prefHeight="25.0" prefWidth="59.0" styleClass="b1" stylesheets="@style/style.css" text="Edit🖋" />

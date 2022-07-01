@@ -22,7 +22,6 @@ public class AccountFormController {
     public String loadUser;
 
     public void initialize() {
-
         txtUserName.setEditable(false);
         txtPassword.setEditable(false);
         txtConfirmPassword.setEditable(false);

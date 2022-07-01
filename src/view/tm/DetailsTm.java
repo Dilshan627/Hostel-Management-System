@@ -10,5 +10,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class DetailsTm {
-    private String studentId;
+    private Object name;
+    private Object address;
+    private Object contact;
+    private Object gender;
+    private Object roomId;
+    private Object date;
+    private Object status;
+
+
 }
